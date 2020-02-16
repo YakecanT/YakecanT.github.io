@@ -1,32 +1,29 @@
-html ģ�壺Story by HTML5 UP (html5up.net)
-ͼƬ�زģ�Unsplash (unsplash.com)
+﻿html模板：Story by HTML5 UP (html5up.net)
+图片素材：Unsplash (unsplash.com)
+icon素材：Font Awesome （http://www.fontawesome.com.cn）
+	Fontdiao（https://github.com/lexrus/fontdiao）
 
 
-html template: 
-
-Story by HTML5 UP
+Read Only by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
 
-Say hello to Story, a brand new responsive one-pager for HTML5 UP! Inspired by my work
-on Carrd*, Story is built to be extremely modular and tweakable, and as such is entirely
-built on reusable, insanely customizable elements (like "spotlight" and "gallery") that
-can be endlessly duplicated and tweaked into whatever you need to tell your story --
-without, in many cases, touching *any* CSS. Check out index-demo.html for an interactive
-demo, and index.html for the actual template. Enjoy!
+Just a super simple single-page responsive template built for personal sites and portfolios
+(although it'd definitely work for other stuff too). Includes a contact form, pre-styled
+elements, and Sass sources.
 
-Demo images** courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
+Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
 you can use for pretty much whatever.
 
-PS: Delete index-demo.html and assets/js/demo.js when you're done messing with the demo
-as neither are needed in production :)
+(* = Not included)
 
-(* = my other side project -- carrd.co)
-(** = not included)
+Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
 
 AJ
 aj@lkn.io | @ajlkn
+
+PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
 
 
 Credits:
