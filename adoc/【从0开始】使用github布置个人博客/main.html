@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>【从0开始】使用github布置个人博客</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>【从0开始】使用github布置个人博客</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<ul class="sectlevel1">
+<li><a href="#_前言">1. 前言</a>
+<ul class="sectlevel2">
+<li><a href="#_适合读者">1.1. 适合读者</a></li>
+<li><a href="#_环境与软件要求">1.2. 环境与软件要求</a></li>
+</ul>
+</li>
+<li><a href="#_基础配置">2. 基础配置</a>
+<ul class="sectlevel2">
+<li><a href="#_在github上注册账户">2.1. 在github上注册账户</a></li>
+<li><a href="#_在github上设置repository_page">2.2. 在github上设置repository page</a></li>
+</ul>
+</li>
+<li><a href="#blog">3. 使用博客模板快速搭建博客</a></li>
+<li><a href="#_使用git上传本地博客">4. 使用git上传本地博客</a>
+<ul class="sectlevel2">
+<li><a href="#_概览">4.1. 概览</a></li>
+<li><a href="#_git的安装">4.2. git的安装</a></li>
+<li><a href="#_git的使用">4.3. git的使用</a></li>
+</ul>
+</li>
+<li><a href="#_附录字典">5. 附录：字典</a>
+<ul class="sectlevel2">
+<li><a href="#repository">5.1. Repository</a></li>
+<li><a href="#page">5.2. Page</a></li>
+<li><a href="#brackets">5.3. Brackets文本编辑器</a></li>
+<li><a href="#adoc">5.4. adoc文档</a></li>
+</ul>
+</li>
+<li><a href="#related">6. 附录：相关文件</a></li>
+<li><a href="#gitssh">7. 附录：使用git，将本地文件与github建立联系</a></li>
+<li><a href="#_参考">8. 参考</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>本文主要展示如何从0开始布置个人博客，通过阅读本文，读者能够完成个人博客的初步配置，掌握使用git更新博客的方法。博客内容的具体书写、前端开发的一些小技巧等，将与博客同步更新于 <a href="../【实时更新】博客编写经验总结/main.adoc">【实时更新】博客编写经验总结</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_前言">1. 前言</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>除必须配置外，所有配置全为软件默认，帮助用户简化各个组件的部署步骤</p>
+</li>
+<li>
+<p>为读者提供了本文涵盖的所有软件的安装包，一篇文章完成一个完整的项目</p>
+</li>
+<li>
+<p>提供不断完善的概念字典，帮助用户更轻松地阅读和操作</p>
+</li>
+<li>
+<p>由于每个人的知识体系不完全相同，一定会遇到不太明白的地方，不用管，直接往下操作，操作结束了就会有自己的认识</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_适合读者">1.1. 适合读者</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>github小白</p>
+</li>
+<li>
+<p>前端小白</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_环境与软件要求">1.2. 环境与软件要求</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Windows 10</p>
+</li>
+<li>
+<p>Chrome浏览器</p>
+</li>
+<li>
+<p>Brackets文本编辑器（或其他，如VS Code）</p>
+</li>
+<li>
+<p>git</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_基础配置">2. 基础配置</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_在github上注册账户">2.1. 在github上注册账户</h3>
+<div class="paragraph">
+<p>进入 <a href="https://github.com/">github主页</a> ，根据指示注册</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_在github上设置repository_page">2.2. 在github上设置repository page</h3>
+<div class="paragraph">
+<p><a href="#repository">Repository</a>指代码库，建立blog需要使用到其中的<a href="#page">Page</a>功能。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>点击下图</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/new_r.png" alt="new r">
+</div>
+</div>
+</li>
+<li>
+<p>输入Repository name（代码库名），点击Create Repository即可创建</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/new_r2.png" alt="new r2">
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>如果希望默认域名为&lt;username&gt;.github.io，在设置repository name时，直接命名为&lt;username&gt;.github.io</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>自动跳转新建的repository，点击creating a new file</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/new_r3.png" alt="new r3">
+</div>
+</div>
+</li>
+<li>
+<p>创建index.html作为page的根文档，index.html内容复制以下代码即可，将页面拉至最后，点击按钮 <span class="image"><img src="./images/new_f_icon.png" alt="new f icon" width="120px"></span></p>
+<div class="listingblock">
+<div class="title">index.html</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Coding Pages&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello Coding!&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/new_p.png" alt="new p">
+</div>
+</div>
+</li>
+<li>
+<p>基本配置完毕，转到库页面，点击设置Settings</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/r_set.png" alt="r set">
+</div>
+</div>
+</li>
+<li>
+<p>在Settings页面下拉，找到Github Pages配置窗口，在Source部分设置master branch为Source即可</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/set_p.png" alt="set p">
+</div>
+</div>
+</li>
+<li>
+<p>更改配置后结果如下，注意这里的默认page域名为 <code>&lt;username&gt;.github.io/&lt;repository name&gt;</code></p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/p_result.png" alt="p result">
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>因为这里将test作为repository name，如果希望默认域名为&lt;username&gt;.github.io，在设置repository name时，直接命名为&lt;username&gt;.github.io即可</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>至此，repository的page配置已完成，可以开始制作自己的blog了！</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="blog">3. 使用博客模板快速搭建博客</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>推荐本文所用的博客模板网站 <a href="https://html5up.net/">HTML5</a> ，从该网站可以下载完整的博客模板</p>
+</li>
+<li>
+<p>本文提供了已下载的部分模板供fanqiang不便的用户使用，见<a href="#related">附录：相关文件</a></p>
+</li>
+<li>
+<p>本部分仅展示快速搭建博客过程，博客书写见 link:</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>使用文本编辑器打开博客文件夹(File-Openfolder-文件夹目录)，打开index.html查看内容（本文使用<a href="#brackets">Brackets文本编辑器</a>，可以同时编辑html和<a href="#adoc">adoc文档</a>）</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog_1.png" alt="blog 1">
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>HTML5的模板内容：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>index.html：基本模板，博客的主页面，提供到各个博客文章的导航</p>
+</li>
+<li>
+<p>elements.html：模板元素，模板中各种html css类型的展示效果一览，用户可以参考该页面的class分装方式，自定义自己的页面</p>
+</li>
+<li>
+<p>massively模板中特有的页面：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>generic.html：页面模板，每个博客文章的页面内容</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>点击图标 <span class="image"><img src="./images/h_review_icon.png" alt="h review icon" width="30px"></span> 使用文本编辑器自带的浏览功能浏览html效果</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/h_review.png" alt="h review">
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Brackets的浏览功能使用默认浏览器打开html，建议设置默认浏览器为Chrome，便于从前端开发者视角编辑自己的blog</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>使用Chrome的开发者工具查看模板html中各个部分的class</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/h_edit.png" alt="h edit">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在该页面使用F12或Ctrl+Shift+I进入开发者页面</p>
+</li>
+<li>
+<p>可以看见原页面（左），开发者页面（右），通过点击开发者页面的鼠标按钮，即可在原页面寻找相应部分的class配置（style）</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>找到需要个人修改的部分，更改html文本，即可制作自己的blog，可能的结果如下</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/b_result.png" alt="b result">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_使用git上传本地博客">4. 使用git上传本地博客</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>实际上，用户只需掌握四个git用法即可</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">cd 本地库目录
+git add .
+git commit -m "版本备注"
+git push -u origin master</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>下文将逐步讲述使用git上传本地博客的方法。</p>
+</div>
+<div class="sect2">
+<h3 id="_概览">4.1. 概览</h3>
+<div class="paragraph">
+<p>git是一款文件版本控制系统。比如，用word写文章时，我们需要人为的为每一次改动分别另存为不同的文件版本进行存储，从而方便自己找回原来的文件，随时复原。而git通过代码实现了这一点。</p>
+</div>
+<div class="paragraph">
+<p>github以git为核心，为用户提供了基于代码库repository的各种功能，如多人共同编辑、共同下载、共同使用等等。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_git的安装">4.2. git的安装</h3>
+<div class="paragraph">
+<p>本文提供了git安装包，见<a href="#related">附录：相关文件</a>，全部选项都选择默认配置，安装即可</p>
+</div>
+<div class="paragraph">
+<p>安装结果：
+. git bash：git的控制台页面，基本操作使用git语句即可完成
+. git GUI：git的图像页面，本文中不会用到，有兴趣可以自行百度或找 <a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的git教程</a> 学习</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_git的使用">4.3. git的使用</h3>
+<div class="paragraph">
+<p>github与git的关系，就相当于百度网盘与本地文件的关系，在每次操作时，将github上代码仓库中的文件下载（clone）到本地，在本地使用文本编辑器进行编辑，之后push（上传）到github对应的代码仓库中，即完成github某代码仓库的版本更新。博客制作的过程便是更新的过程。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>如果特别偏好图像操作，见 <a href="#related">附录：相关文件</a> 中的github桌面版，可以一键部署，但实际使用上，点击步骤会比git命令行更多更麻烦</p>
+</li>
+<li>
+<p>如果配置过ssh（见ssh配置 <a href="#gitssh">附录：使用git，将本地文件与github建立联系</a> ），就可以直接使用以下操作进行设置了。</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>在新建的github repository页面，点击 clone or download按钮，复制其中的ssh（或https）</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/g_clone.png" alt="g clone">
+</div>
+</div>
+</li>
+<li>
+<p>在本地博客储存目录（这里为桌面）打开git bash（或cd到相应目录）</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/bash.jpg" alt="bash">
+</div>
+</div>
+</li>
+<li>
+<p>将git上的代码库clone（克隆）到本地</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">git clone &lt;步骤1中复制的ssh或https&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/git_d.png" alt="git d">
+</div>
+</div>
+<div class="paragraph">
+<p>得到代码库test</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/git_d2.png" alt="git d2">
+</div>
+</div>
+</li>
+<li>
+<p>按照<a href="#blog">使用博客模板快速搭建博客</a>中的内容修改博客文件</p>
+</li>
+<li>
+<p>修改完成，使用git bash上传</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/git_up.png" alt="git up">
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>change dictionary（cd）到博客代码库的本地文件夹</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">cd &lt;Blog本地代码库（文件夹）&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>将文件夹下所有文件上载到git</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">git add .</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>为新上载的文件做一个版本备注</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">git commit -m "版本备注"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>将所有文件push到github相应的代码库中（该文件夹与github代码库同名）</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">git push -u origin master</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>如果不是采用ssh的方法，将会要求输入github的账户和密码，进行确认，如果是ssh方法则直接显示push成功</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_附录字典">5. 附录：字典</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="repository">5.1. Repository</h3>
+<div class="paragraph">
+<p>repository: A repository contains all project files, including the revision history.</p>
+</div>
+<div class="paragraph">
+<p>代码库：包含所有项目文件和版本历史的仓库。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="page">5.2. Page</h3>
+<div class="paragraph">
+<p>页面：基于repository中的index.html文档，建立github网页</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="brackets">5.3. Brackets文本编辑器</h3>
+<div class="paragraph">
+<p>Adobe开发的一款轻便的、多功能的文本编辑器，支持在线浏览adoc文档</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adoc">5.4. adoc文档</h3>
+<div class="paragraph">
+<p>Asciidoctor软件对应的文档，采用类Markdown语法，便于使用者专注于编辑网页文本而非网页设计</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="related">6. 附录：相关文件</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://pan.baidu.com/s/1Opupx0Yes7SrzJvh61zlfQ">文件链接</a></p>
+</li>
+<li>
+<p>提取密码：jx55</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gitssh">7. 附录：使用git，将本地文件与github建立联系</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>github为了与git保证安全的数据传输，提供了两种方法与本地文件连接</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>SSH Key：一次性配置，以后直接提交；项目拥有者才可以连接，需要添加SSH key</p>
+</li>
+<li>
+<p>HTTPS：可以直接打开github代码库页面的网址，但每次通过git提交的时候都要输入用户名和密码；任意用户可随意clone或者push项目于或到github，不管谁的项目</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>本文采用SSH Key的方式进行配置，步骤如下：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>打开git bash，将“”中的内容自行替换</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">git config --global user.name "&lt;your_username&gt;"
+git config --global user.email "&lt;your_email@example.com&gt;"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>可以通过`git config --list`查看当前Git环境所有配置。</p>
+</div>
+</li>
+<li>
+<p>使用以下语句建立ssh key，这里的email需要与上一步骤中的email地址相同；输入该语句后回车，git后台会自动要求用户输入ssh存储文件的名称和使用ssh的密码，简单起见，直接回车两次即可，即使用默认的ssh文件名称、无密码。</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">ssh-keygen -t rsa -C &lt;your_email@example.com&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>参数含义：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>-t： 指定密钥类型，默认rsa，可省略</p>
+</li>
+<li>
+<p>-C：设置注释文字，比如邮箱（会放在公钥里）</p>
+</li>
+<li>
+<p>-f： 指定密钥文件存储文件名</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/gitssh/ssh_new.png" alt="ssh new">
+</div>
+</div>
+</li>
+<li>
+<p>复制上一步 <code>Your public key has been saved in &lt;ssh存储地址&gt;</code> 的&lt;ssh存储地址&gt;，使用以下语句导出ssh key的内容：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-git" data-lang="git">cat &lt;ssh存储地址&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/gitssh/ssh.png" alt="ssh">
+</div>
+</div>
+</li>
+<li>
+<p>复制上一步中ssh key的内容（输入命令行后输出的一大堆东西），进入之前创建的github页面，点击右上角个人头像下的settings，进入账号设置</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/gitssh/g_set.png" alt="g set">
+</div>
+</div>
+</li>
+<li>
+<p>进入 <code>SSH and GPG keys</code>设置页面，点击New SSH key，将上一步中复制的内容粘贴于此，点击Add SSH key即可</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/gitssh/ssh_set.png" alt="ssh set">
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/gitssh/ssh_set2.png" alt="ssh set2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_参考">8. 参考</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://coding.net/help/doc/pages/creating-pages.html">Coding的Page配置</a></p>
+</li>
+<li>
+<p><a href="https://www.jianshu.com/p/5f3effb3eaad">在GitHub Page上部署网页</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/u013778905/article/details/83501204">GitHub如何配置SSH Key</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-02-19 21:24:41 +0800
+</div>
+</div>
+</body>
+</html>

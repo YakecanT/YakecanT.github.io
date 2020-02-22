@@ -2,6 +2,7 @@
 图片素材：Unsplash (unsplash.com)
 icon素材：Font Awesome （http://www.fontawesome.com.cn）
 	Fontdiao（https://github.com/lexrus/fontdiao）
+js动效：fancybox （https://code.jquery.com/jquery-3.3.1.min.js）
 
 
 Read Only by HTML5 UP

@@ -1,0 +1,152 @@
+:toc: left
+:toc-label: 目录
+:toclevels: 4
+:doctype: book
+:imagesdir: ./images
+:pygments-style: autumn
+:sectnums:
+:sectnumlevels: 4
+:chapter-label: 
+:example-caption: 例
+:figure-caption: 图
+:toc-title: 目录
+:table-caption: 表
+:appendix-caption: 附录
+:icons: font
+:version-label: 版本号
+
+= 【实时更新】博客编写经验总结
+
+== 前言
+. 提供作为小白的博主，从0开始编写本博客的所有经验技巧
+. 由于每个人的知识体系不完全相同，一定会遇到不太明白的地方，不用管，直接往下操作，操作结束了就会有自己的认识
+
+=== 适合读者
+
+. 前端小白
+. 个人博客编辑者
+
+<<<
+
+== 个人博客road_list
+=== 思维导图
+=== to do list
+
+<<<
+== icon技巧：fontawesome和fontdiao
+
+<<<
+== 图片预览技巧：fancybox
+
+<<<
+== 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写
+
+=== AsciiDoctor的安装
+
+参考 link:https://asciidoctor.org/docs/user-manual/[AsciiDoctor用户手册]
+
+AsciiDoctor是使用Ruby语言所写的一款插件，类似MarkDown语法。
+
+. 安装Ruby，到官网link:https://www.ruby-lang.org/en/downloads/[下载]
+. 修改gem sources
+. 安装AsciiDoctor，在控制台运行 ``gem install asciidoctor`` 即可安装，运行 ``$ asciidoctor --version`` 检查版本
+
+[TIP]
+====
+安装好ruby后，不建议直接使用gem install安装gem，被墙非常慢。
+
+目前国内镜像源为 https://gems.ruby-china.com/ ，打开cmd，运行以下代码修改源
+
+----
+gem sources -l //查看<目前ruby gems源>
+gem sources -r <目前ruby gems源>  //删除目前ruby gems源
+gem sources -a https://gems.ruby-china.com/  //新增ruby gems源
+----
+====
+
+=== AsciiDoctor-stylesheet-factory （模板工厂）
+
+参考link:https://asciidoctor.cn/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/[AsciiDoctor模板文档] 
+
+==== 安装
+
+. 从link:https://github.com/asciidoctor/asciidoctor-stylesheet-factory[模板工厂的github代码库]中，使用`git clone <url>`，clone github 代码库到本地
+. 进入本地代码库，使用文本编辑器，修改Gemfile中的source为 https://gems.ruby-china.com/
++
+image::gemfile.png[align=center, scaledwidth=100%]
+. cd到本地代码库，运行``bundle install``
++
+image::bundle.png[align=center, scaledwidth=100%]
+
+[TIP]
+====
+官方文档默认读者熟悉Ruby和Gemfile，这里的bundle install，针对指定的项目文件运行，而不是全局安装，因此需要cd到指定的文件目录中才可以
+==== 
+
+==== 生成模板
+
+安装好相应的gems后，便可以开始生成模板。
+
+. cd到本地Asciidoctor stylesheet factory代码库
+. 运行``compile``命令
++
+----
+compass compile
+----
++
+image::compile.png[align=center, scaledwidth=100%]
+
+==== 使用模板渲染生成html
+
+现在可以尝试用生成的模板渲染自己的adoc，示例adoc名称为mysample.adoc
+
+adoc和渲染命令如下：
+
+.adoc
+----
+= Introduction to AsciiDoc
+Doc Writer <doc@example.com>
+
+A preface about http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"
+----
+
+.渲染命令
+----
+asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
+----
+// asciidoctor -a stylesheet=colony.css -a stylesdir=../../assets/css ./adoc/【实时更新】博客编写经验总结/main.adoc
+
+上述命令会将colony.css中的内容放到渲染出的html中。
+
+如果希望建立html到css的href，增加一句linkass即可，示例如下：
+
+.以href的形式加入
+----
+asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
+----
+// asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../../assets/css ./adoc/【实时更新】博客编写经验总结/main.adoc
+
+这样就可以保证输出的html的header不会充满了大量的预定义class，从而增加html的可读性
+
+==== 制作自己的模板
+
+若需补充相关css知识，见 link:../【前端笔记】HTML和CSS/main.adoc[【前端笔记】HTML和CSS]
+
+只需在本地Asciidoctor stylesheet factory代码库的sass文件夹下，创建sass文件，并修改sass下的setting即可。
+
+这里以blog.sass为例
+
+
+
+
+
+
+

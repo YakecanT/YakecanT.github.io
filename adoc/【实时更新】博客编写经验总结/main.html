@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>【实时更新】博客编写经验总结</title>
+<link rel="stylesheet" href="../../assets/css/colony.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>【实时更新】博客编写经验总结</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<ul class="sectlevel1">
+<li><a href="#_前言">1. 前言</a>
+<ul class="sectlevel2">
+<li><a href="#_适合读者">1.1. 适合读者</a></li>
+</ul>
+</li>
+<li><a href="#_个人博客road_list">2. 个人博客road_list</a>
+<ul class="sectlevel2">
+<li><a href="#_思维导图">2.1. 思维导图</a></li>
+<li><a href="#_to_do_list">2.2. to do list</a></li>
+</ul>
+</li>
+<li><a href="#_icon技巧fontawesome和fontdiao">3. icon技巧：fontawesome和fontdiao</a></li>
+<li><a href="#_图片预览技巧fancybox">4. 图片预览技巧：fancybox</a></li>
+<li><a href="#_页面编辑技巧使用asciidoctor模板完成博客页面书写">5. 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</a>
+<ul class="sectlevel2">
+<li><a href="#_asciidoctor的安装">5.1. AsciiDoctor的安装</a></li>
+<li><a href="#_asciidoctor_stylesheet_factory_模板工厂">5.2. AsciiDoctor-stylesheet-factory （模板工厂）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_前言">1. 前言</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>提供作为小白的博主，从0开始编写本博客的所有经验技巧</p>
+</li>
+<li>
+<p>由于每个人的知识体系不完全相同，一定会遇到不太明白的地方，不用管，直接往下操作，操作结束了就会有自己的认识</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_适合读者">1.1. 适合读者</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>前端小白</p>
+</li>
+<li>
+<p>个人博客编辑者</p>
+</li>
+</ol>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_个人博客road_list">2. 个人博客road_list</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_思维导图">2.1. 思维导图</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_to_do_list">2.2. to do list</h3>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_icon技巧fontawesome和fontdiao">3. icon技巧：fontawesome和fontdiao</h2>
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_图片预览技巧fancybox">4. 图片预览技巧：fancybox</h2>
+<div class="sectionbody">
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_页面编辑技巧使用asciidoctor模板完成博客页面书写">5. 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_asciidoctor的安装">5.1. AsciiDoctor的安装</h3>
+<div class="paragraph">
+<p>参考 <a href="https://asciidoctor.org/docs/user-manual/">AsciiDoctor用户手册</a></p>
+</div>
+<div class="paragraph">
+<p>AsciiDoctor是使用Ruby语言所写的一款插件，类似MarkDown语法。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>安装Ruby，到官网<a href="https://www.ruby-lang.org/en/downloads/">下载</a></p>
+</li>
+<li>
+<p>修改gem sources</p>
+</li>
+<li>
+<p>安装AsciiDoctor，在控制台运行 <code>gem install asciidoctor</code> 即可安装，运行 <code>$ asciidoctor --version</code> 检查版本</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>安装好ruby后，不建议直接使用gem install安装gem，被墙非常慢。</p>
+</div>
+<div class="paragraph">
+<p>目前国内镜像源为 <a href="https://gems.ruby-china.com/" class="bare">https://gems.ruby-china.com/</a> ，打开cmd，运行以下代码修改源</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>gem sources -l //查看&lt;目前ruby gems源&gt;
+gem sources -r &lt;目前ruby gems源&gt;  //删除目前ruby gems源
+gem sources -a https://gems.ruby-china.com/  //新增ruby gems源</pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asciidoctor_stylesheet_factory_模板工厂">5.2. AsciiDoctor-stylesheet-factory （模板工厂）</h3>
+<div class="paragraph">
+<p>参考<a href="https://asciidoctor.cn/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/">AsciiDoctor模板文档</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>从<a href="https://github.com/asciidoctor/asciidoctor-stylesheet-factory">模板工厂的github代码库</a>中，使用`git clone &lt;url&gt;`，clone github 代码库到本地</p>
+</li>
+<li>
+<p>进入本地代码库，使用文本编辑器，修改Gemfile中的source为 <a href="https://gems.ruby-china.com/" class="bare">https://gems.ruby-china.com/</a></p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/gemfile.png" alt="gemfile">
+</div>
+</div>
+</li>
+<li>
+<p>cd到本地代码库，运行<code>bundle install</code></p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/bundle.png" alt="bundle">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>官方文档默认读者熟悉Ruby和Gemfile，这里的bundle install，针对指定的项目文件运行，而不是全局安装，因此需要cd到指定的文件目录中才可以</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>安装好相应的gems后，便可以开始制作模板。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>cd到本地Asciidoctor stylesheet factory代码库</p>
+</li>
+<li>
+<p>运行<code>compile</code>命令</p>
+<div class="listingblock">
+<div class="content">
+<pre>compass compile</pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/compile.png" alt="compile">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>现在可以尝试用生成的模板渲染自己的adoc，示例adoc名称为mysample.adoc</p>
+</div>
+<div class="paragraph">
+<p>adoc和渲染命令如下：</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc</div>
+<div class="content">
+<pre>= Introduction to AsciiDoc
+Doc Writer &lt;doc@example.com&gt;
+
+A preface about http://asciidoc.org[AsciiDoc].
+
+== First Section
+
+* item 1
+* item 2
+
+[source,ruby]
+puts "Hello, World!"</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">渲染命令</div>
+<div class="content">
+<pre>asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>上述命令会将colony.css中的内容放到渲染出的html中。</p>
+</div>
+<div class="paragraph">
+<p>如果希望建立html到css的href，增加一句linkass即可，示例如下：</p>
+</div>
+<div class="listingblock">
+<div class="title">增加href</div>
+<div class="content">
+<pre>asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-02-21 16:18:51 +0800
+</div>
+</div>
+</body>
+</html>

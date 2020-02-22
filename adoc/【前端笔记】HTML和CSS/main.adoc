@@ -1,0 +1,30 @@
+// main
+:toc: left
+:toc-label: 目录
+:toclevels: 4
+:doctype: book
+:pygments-style: autumn
+
+// each
+:sectnums:
+:imagesdir: ./images
+:sectnumlevels: 4
+:chapter-label: 
+:example-caption: 例
+:figure-caption: 图
+:toc-title: 目录
+:table-caption: 表
+:appendix-caption: 附录
+:icons: font
+:revdate: 2020-02-21
+
+= 【前端笔记】HTML和CSS
+Yakecan Tony 
+
+本文记录了HTML和CSS学习中的一些特殊用法，采用目录式结构，方便查询。
+
+include::base.adoc[]
+
+include::method.adoc[]
+
+

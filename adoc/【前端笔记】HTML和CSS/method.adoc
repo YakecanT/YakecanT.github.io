@@ -1,0 +1,61 @@
+== 设计模式方法
+:sectnums:
+:imagesdir: ./images
+:sectnumlevels: 4
+:chapter-label: 
+:example-caption: 例
+:figure-caption: 图
+:toc-title: 目录
+:table-caption: 表
+:appendix-caption: 附录
+:icons: font
+:revdate: 2020-02-21
+
+=== 旁注下沉 图片文本替换
+
+.mgd.html
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <title>Marginal Graphic Dropcap</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="page.css"   media="all"    type="text/css" />
+ </head>
+ 
+ <body>
+ 
+ <h1>Marginal Graphic Dropcap</h1>
+
+  <p class="indent"><span class="graphic-dropcap" >M<span></span></span>arginal 
+   Graphic Dropcap. The letter M has been covered by the dropcap image. 
+   Screen readers read the text and visual users see the image.
+   If the browser cannot display the dropcap image, 
+   the text becomes visible.</p>
+
+ </body>
+</html>
+----
+
+.page.css
+[source,css]
+----
+//将段落相对定位，增加120px的左外边距
+*.indent               { position:relative;  margin-left:120px; }
+
+//将下沉内容绝对定位，移到段落最左边，设置为与下沉图片相同尺寸
+*.graphic-dropcap      { position:absolute; 
+                         width:120px; height:90px; left:-120px; top:0; }
+
+//下沉图片的span绝对定位，移到下沉文本之上，用背景图覆盖文本
+*.graphic-dropcap span { position:absolute; 
+                         width:120px; height:90px; margin:0; left:0; top:0; 
+                         background:url("m.jpg") no-repeat; }
+
+----
+
+.效果
+
+image::method/mgd.png[align=center, scaledwidth=100%]
+
