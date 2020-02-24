@@ -55,7 +55,541 @@
 
 ----
 
-.效果
+效果：
 
 image::method/mgd.png[align=center, scaledwidth=100%]
 
+== HTML模板
+
+=== 基础结构
+
+.基础结构
+[source,html]
+----
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head><title>HTML Structure</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <link rel="stylesheet" href="site.css" media="all" type="text/css"/>
+  <link rel="stylesheet" href="page.css" media="all" type="text/css"/>
+  <link rel="stylesheet" href="print.css" media="print" type="text/css"/>
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" href="ie6.css" media="all" type="text/css"/>
+  <![endif]-->
+</head>
+<body>
+<noscript>Show this when script cannot run.</noscript>
+<div>
+  <h1>HTML Structure</h1>
+
+  <p>Paragraph</p>
+
+  <ol>
+    <li>Ordered List Item</li>
+    <li>Ordered List Item</li>
+  </ol>
+  <ul>
+    <li>Unordered List Item</li>
+    <li>Unordered List Item</li>
+  </ul>
+  <dl>
+    <dt>Definition Term</dt>
+    <dt>Definition Term</dt>
+    <dd>Definition Data</dd>
+    <dd>Definition Data</dd>
+  </dl>
+
+  <table>
+    <caption>Table Caption</caption>
+    <colgroup>
+      <col/>
+      <col/>
+    </colgroup>
+    <thead>
+    <tr>
+      <td>row1-col1</td>
+      <td>row1-col2</td>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+      <td>row3-col1</td>
+      <td>row3-col2</td>
+    </tr>
+    </tfoot>
+    <tbody>
+    </tbody>
+  </table>
+
+  <form id="form1" method="post" action="http://www.tipjar.com/cgi-bin/test">
+    <input type="hidden" title="input hidden" name="hidden" value="Secret"/>
+
+    <input id="radio1" name="radios" type="radio" value="radio1" checked="checked"/>
+    <label for="radio1">Radio1</label>
+
+    <input id="radio2" name="radios" type="radio" value="radio2-pushed"/>
+    <label for="radio2">Radio2</label>
+
+    <input id="xbox1" name="xbox1" type="checkbox" value="xbox1" checked="checked"/>
+    <label for="xbox1">Checkbox1</label>
+
+    <label for="inputtext">Input-text</label>
+    <input id="inputtext" name="inputtext" type="text" value="Type here" size="14"/>
+
+    <label for="select1">Select</label>
+    <select id="select1" name="select" size="2">
+      <option selected="selected" value="item1">Item1</option>
+      <option value="item2">Item2</option>
+    </select>
+
+    <label for="textarea">Textarea</label>
+    <textarea id="textarea" name="textarea" rows="2" cols="10">Textarea</textarea>
+
+    <input type="submit" id="submit1" name="submit1" value="Submit"/>
+    <input type="reset" id="reset1" name="reset1" value="Reset"/>
+    <button type="submit" id="button1" name="button1" value="Button1">Button</button>
+  </form>
+
+  <div>Division within a Division <a id="link1" href="left.html">Link</a>
+    <img src="left-right.gif" width="20" height="20" usemap="#map1" alt="alt text"/>
+    <map id="map1" name="map1">
+      <area href="left.html" alt="left" shape="rect" coords="0,0,10,20"/>
+      <area href="right.html" alt="right" shape="rect" coords="10,0,20,20"/>
+    </map>
+
+    <span>span</span>
+    <em>em</em>
+    <strong>strong</strong>
+    <cite>cite</cite>
+    <code>code</code>
+    <kbd>kbd</kbd>
+    <samp>samp</samp>
+    <var>var</var>
+    <abbr>abbr</abbr>
+    <dfn>dfn</dfn>
+    <sub>sub</sub>
+    <sup>sup</sup>
+    <bdo dir="rtl">backwards</bdo>
+
+    <object type="application/x-shockwave-flash">
+      <param name="movie" value="http://myserver.com/movie.swf">
+      <param name="allowfullscreen" value=true>
+    </object>
+  </div>
+  <article>
+    <header>
+      <h1>My blog post</h1>
+
+      <p>
+        <time pubdate datetime="2011-10-07T10:00-08:00"></time>
+      </p>
+    </header>
+    <p>The article element represents a self-contained composition in page that is independently distributable or
+      reusable, e.g. in syndication.</p>
+    <footer>
+      <a href="?comments=1">Show comments...</a>
+    </footer>
+  </article>
+  <section>
+    <h1>First section heading</h1>
+
+    <p>
+      The section element represents a generic section of a document (thematic grouping of content).
+    </p>
+  </section>
+  <section>
+    <h1>And one more section</h1>
+
+    <p>A page could be split into sections for an introduction, news items, contact information, etc.</p>
+  </section>
+  <nav>
+    <h1>Some Navigation</h1>
+    <ul>
+      <li><a href="articles.html">Index of articles</a></li>
+      <li><a href="contact.html">Contact information</a></li>
+    </ul>
+    <p>A nav element doesn't have to contain a list, it can contain other kinds of content as well.</p>
+  </nav>
+  <address>address</address>
+</div>
+</body>
+</html>
+----
+
+效果：
+
+image::method/html_base.png[align=center, scaledwidth=100%]
+
+=== 页头元素
+
+.页头元素
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <title>Header Elements</title>
+ 
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+ 
+  <!-- 添加样式表链接 -->
+  <link rel="stylesheet" href="site.css"   media="all"    type="text/css" />
+  <link rel="stylesheet" href="page.css"   media="all"    type="text/css" />
+  <link rel="stylesheet" href="print.css"  media="print"  type="text/css" />
+  <!--[if lte IE 6]>
+  <link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" />
+  <![endif]-->
+
+ 
+  <!-- 添加其他用户可以应用的样式表（可选） -->
+  <link rel="alternate stylesheet" type="text/css" title="cool" href="cool.css" />
+  <link rel="alternate stylesheet" type="text/css" title="hot"  href="hot.css"  />
+
+
+  
+  <!-- 添加仅应用于本页面的样式规则（可选） -->
+  <style type="text/css" media="all">
+   body  { margin:0px; padding:20px; padding-top:0px; width:702px;
+          font-family:verdana,arial,sans-serif; font-size:medium; }
+   h1    { margin:10px 0 10px 0; font-size:1.9em;  }
+  </style>
+
+
+
+  <!-- 添加JavaScript文件链接（可选） -->
+  <script type="text/javascript" src="script.js" ></script>
+
+
+  <!-- 添加仅应用于本页面的Javascript代码（可选） -->
+  <script type="text/javascript" ><!--
+   alert("Hello World!");
+  --></script>
+  
+ </head>
+ 
+ <body> <h1>Header Elements</h1> <p>Look at the source to see the header</p></body>
+</html>
+----
+
+image::method/header.png[align=center,scaledwidth=100%]
+
+=== 结构块元素
+
+.结构块元素
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Structural Block Elements</title>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="site.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="page.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="print.css"  media="print"  type="text/css" />
+ <!--[if lte IE 6]>
+ <link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" />
+ <![endif]-->
+</head>
+
+<body>
+
+ <h1>Structural Block Elements</h1>
+<!-- 有序列表 -->
+  <ol>
+    <li>                            </li>
+    <li>  One or more list items... </li>
+  </ol>
+
+<!-- 无序列表 -->
+  <ul>	
+    <li>                            </li>
+    <li>  One or more list items... </li>
+  </ul>
+
+<!-- 定义列表 -->
+  <dl>	
+    <dt>                                  </dt>
+    <dt>  One or more definition terms... </dt>
+    <dd>                                  </dd>
+    <dd>  One or more definitions...      </dd>
+  </dl>
+
+<!-- 表格 -->
+  <table>
+   <caption> One optional caption per table. </caption>
+   <colgroup> <col /> <col /> </colgroup>
+    <thead>
+      <tr>
+        <th> One or more header cells in a row...  </th>
+        <td> One or more data cells  in a row...   </td>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th> One or more rows in a row group...    </th>
+        <td>                                       </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <th> Zero or more row groups in a table... </th>
+        <td>                                       </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- 节 -->
+  <div> <div> <div> ... </div> </div> </div>
+
+</body>
+</html>
+----
+
+image::method/s_block.png[align=center,scaledwidth=100%]
+
+=== 终止块元素
+
+终止块元素，指不能包含其他块元素的块元素。
+
+.终止块元素
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Terminal Block Elements</title>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="site.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="page.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="print.css"  media="print"  type="text/css" />
+ <!--[if lte IE 6]>
+ <link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" />
+ <![endif]-->
+</head>
+
+<body>
+
+<h1>Terminal Block Elements</h1>
+
+<p>
+  Headings, paragraphs, blockquotes, definition terms, addresses, 
+  和 table captions 均为终止块元素. 它们只包含内容。如果将块元素放置在终止块元素中，HTML验证程序将声明文档无效。
+</p>
+
+<blockquote> blockquote 是一个终止块</blockquote>
+
+<dl>
+  <dt>注意:</dt>
+  <dd>终止块的内容均在行内</dd>
+</dl>
+
+<address> address 是一个终止块</address>
+
+<table> 
+ <caption>Table caption 是一个终止块.</caption>
+ <tr><td></td></tr>
+</table>
+ 
+</body>
+</html>
+----
+image::method/t_block.png[align=center, scaledwidth=100%]
+
+=== 多功能块元素
+
+.多功能块元素
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Multi-purpose Block Elements</title>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="site.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="page.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="print.css"  media="print"  type="text/css" />
+ <!--[if lte IE 6]>
+ <link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" />
+ <![endif]-->
+</head>
+
+<body>
+
+<noscript>若script不能运行则展示该部分</noscript>
+
+<div>
+ <div> 
+  <h1>多功能块元素</h1>
+ </div>
+</div>
+
+<!-- 下面的代码是无效的HTML，其结构不正确 -->
+<ol>
+  This content is inside a list but is not inside a list item like it should be. 
+  <li> This content is properly nested in a list item. </li>
+  This content outside a list item invalidates and destroys the structure of a list.
+</ol>
+
+<!-- 下面的代码是有效的HTML，因为HTML的DTD中存在漏洞，但是其结构仍然不正确 -->
+<div>
+  Compare the mixed content in this division with that of the preceding list.
+  <div> This content is inside a nested structural division. </div>
+  This <em>mixed content</em> is not invalid, but it destroys the block structure 
+  and requires a browser to create <em>anonymous blocks</em> in which to render it.
+</div>
+
+<!-- 下面的表单包含块，块中加入了控件 -->
+<form id="form1" method="post" action="http://www.tipjar.com/cgi-bin/test" >
+ <ul>
+  <li> <input type="checkbox" id="xbox1" name="xbox1" value="xbox1" />
+       <label for="xbox1">Checkbox1</label></li>
+  <li> <input type="submit" id="submit1" name="submit1" value="Submit" /> </li>
+ </ul>
+</form>
+ 
+</body>
+</html>
+
+----
+image::method/m_block.png[align=center, scaledwidth=100%]
+
+=== 行内元素
+
+image::method/in_html.png[align=center, scaledwidth=100%]
+
+.行内元素
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Inline Elements</title>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="site.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="page.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="print.css"  media="print"  type="text/css" />
+ <!--[if lte IE 6]>
+ <link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" />
+ <![endif]-->
+</head>
+
+<body>
+
+ <h1>Inline Elements</h1>
+ <h2>Italicized</h2>
+ <code>&lt;em&gt;      </code>  <em>emphasized</em>                   <br />
+ <code>&lt;cite&gt;    </code>  <cite>citation 引文</cite>                 <br />
+ <code>&lt;var&gt;     </code>  <var>computer variable</var>          <br />
+ <code>&lt;dfn&gt;     </code>  <dfn>definition</dfn>                 <br />
+
+ <h2>Bold</h2>
+ <code>&lt;strong&gt;  </code>  <strong>strongly emphasized</strong>  <br />
+
+ <h2>Monospace 等宽字体</h2>
+ <code>&lt;code&gt;    </code>  <code>computer code 计算机代码</code>            <br />
+ <code>&lt;kbd&gt;     </code>  <kbd>key press 按键 </kbd>                  <br />
+ <code>&lt;samp&gt;    </code>  <samp>sample computer output 计算机输出样本</samp>   <br />
+ 
+ <h2>Underlined</h2>
+ <code>&lt;a&gt;       </code>  <a href="#">a</a>                     <br />
+ <code>&lt;acronym&gt; </code>  <acronym title="a" >acronym 首字母缩写</acronym> <br />
+ <code>&lt;abbr&gt;    </code>  <abbr title="a" >abbreviation 缩写、简写</abbr>  <br />
+
+ <h2>Vertical-aligned</h2>
+ <code>&lt;sup&gt;     </code>  superscript 上标<sup>1</sup>               <br />
+ <code>&lt;sub&gt;     </code>  subscript 下标<sub>1</sub>                 <br />
+
+</body>
+</html>
+----
+
+image::method/inline.png[align=center, scaledwidth=100%]
+
+=== 类和ID属性
+
+image::method/c_id.png[align=center, scaledwidth=100%]
+
+=== HTML空白字符
+
+image::method/ws_html.png[align=center, scaledwidth=100%]
+
+.HTML空白字符
+[source,html]
+----
+<!DOCTYPE html>
+<html lang="en">
+<head><title>HTML Whitespace</title>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="site.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="page.css"   media="all"    type="text/css" />
+ <link rel="stylesheet" href="print.css"  media="print"  type="text/css" />
+ <!--[if lte IE 6]>
+ <link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" />
+ <![endif]-->
+</head>
+
+<body>
+
+<h1>HTML Whitespace</h1>
+<p>     start    middle  &#x0020; &#x0009;  <span> </span>    <span></span>
+                                      &#x000A; &#x000D;  	  end      </p>
+
+<h2>Controlling Where Whitespace Collapses</h2>
+<p>start<span class="border">  middle </span> end<em>—inside element</em></p>
+<p>start <span class="border"> middle</span>  end<em>—outside element</em></p>
+
+<h2>Embedding Whitespace Inside Tags 在标签内嵌入空格 </h2>
+ <p>start<span 
+          class 
+           =
+            "spaced"
+             >middle</span
+              >end</p>
+
+<h2>Embedding Space Entities 嵌入空间实体</h2>
+<code>&amp;zwnj;   </code><span class="border">&zwnj;</span>    &nbsp;
+<code>&amp;thinsp; </code><span class="border">&thinsp;</span>  &nbsp;
+<code>&amp;nbsp;   </code><span class="border">&nbsp;</span>    &nbsp;
+<code>&amp;ensp;   </code><span class="border">&ensp;</span>    &nbsp;
+<code>&amp;emsp;   </code><span class="border">&emsp;</span>    &nbsp;
+
+
+</body>
+</html>
+----
+
+image::method/ws.png[align=center, scaledwidth=100%]
+
+== CSS选择器与继承
+
+=== 类型选择器
+
+image::method/t_s.png[align=center, scaledwidth=100%]
+
+=== 位置选择器
+
+image::method/d_s.png[align=center, scaledwidth=100%]
+
+=== 属性选择器
+
+image::method/a_s.png[align=center, scaledwidth=100%]
+
+=== 伪元素选择器
+
+image::method/p_s.png[align=center, scaledwidth=100%]
+
+=== 伪类选择器
+
+image::method/pc_s.png[align=center, scaledwidth=100%]
+
+=== 子类选择器
+
+image::method/sc_s.png[align=center, scaledwidth=100%]
+
+=== 继承
+
+image::method/i.png[align=center, scaledwidth=100%]
+
+=== 可视化继承
+
+image::method/i_v.png[align=center, scaledwidth=100%]
