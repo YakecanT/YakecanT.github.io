@@ -126,7 +126,7 @@ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 
 上述命令会将colony.css中的内容放到渲染出的html中。
 
-如果希望建立html到css的href，增加一句linkass即可，示例如下：
+如果希望建立html到css的href，增加一句linkcss即可，示例如下：
 
 .以href的形式加入
 ----

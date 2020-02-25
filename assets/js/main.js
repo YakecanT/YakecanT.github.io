@@ -9,10 +9,11 @@
 	var	$window = $(window),
 		$body = $('body'),
 		$wrapper = $('#wrapper'),
-		$header = $('#header'),
+		$top = $('#top'),
 		$nav = $('#nav'),
 		$main = $('#main'),
 		$navPanelToggle, $navPanel, $navPanelInner;
+		$catPanelToggle = $('#catPanelToggle');
 
 	// Breakpoints.
 		breakpoints({
@@ -131,8 +132,8 @@
 			)
 				.appendTo($wrapper);
 
-			// Change toggle styling once we've scrolled past the header.
-				$header.scrollex({
+			// Change toggle styling once we've scrolled past the top.
+				$top.scrollex({
 					bottom: '5vh',
 					enter: function() {
 						$navPanelToggle.removeClass('alt');
@@ -254,5 +255,77 @@
 			});
 
 		}
+	
+	// Catalog Panel.
 
+	// Toggle.
+		
+
+		// alert($catPanelToggle.is(':checked'));
+
+		// Change toggle styling once we've scrolled past the top.
+			$top.scrollex({
+				bottom: '5vh',
+				enter: function() {
+					$catPanelToggle.removeClass('alt');
+				},
+				leave: function() {
+					$catPanelToggle.addClass('alt');
+				}
+			});
+
+	// Panel.
+		$navPanel = $(
+			'<div id="navPanel">' +
+				'<nav>' +
+				'</nav>' +
+				'<a href="#navPanel" class="close"></a>' +
+			'</div>'
+		)
+			.appendTo($body)
+			.panel({
+				delay: 500,
+				hideOnClick: true,
+				hideOnSwipe: true,
+				resetScroll: true,
+				resetForms: true,
+				side: 'right',
+				target: $body,
+				visibleClass: 'is-navPanel-visible'
+			});
+
+		// Get inner.
+			$navPanelInner = $navPanel.children('nav');
+
+		// Move nav content on breakpoint change.
+			var $navContent = $nav.children();
+
+			breakpoints.on('>medium', function() {
+
+				// NavPanel -> Nav.
+					$navContent.appendTo($nav);
+
+				// Flip icon classes.
+					$nav.find('.icons, .icon')
+						.removeClass('alt');
+
+			});
+
+			breakpoints.on('<=medium', function() {
+
+				// Nav -> NavPanel.
+					$navContent.appendTo($navPanelInner);
+
+				// Flip icon classes.
+					$navPanelInner.find('.icons, .icon')
+						.addClass('alt');
+
+			});
+
+		// Hack: Disable transitions on WP.
+			if (browser.os == 'wp'
+			&&	browser.osVersion < 10)
+				$navPanel
+					.css('transition', 'none');
+	
 })(jQuery);
