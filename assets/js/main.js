@@ -12,8 +12,10 @@
 		$top = $('#top'),
 		$nav = $('#nav'),
 		$main = $('#main'),
-		$navPanelToggle, $navPanel, $navPanelInner;
-		$catPanelToggle = $('#catPanelToggle');
+		$navPanelToggle, $navPanel, $navPanelInner,
+		$catPanelToggle = $('#catPanelToggle'),
+		$toc = $('#toc'), 
+		$tocPanel, $tocInner;
 
 	// Breakpoints.
 		breakpoints({
@@ -137,9 +139,11 @@
 					bottom: '5vh',
 					enter: function() {
 						$navPanelToggle.removeClass('alt');
+						$catPanelToggle.removeClass('alt');   // Catalog Panel.
 					},
 					leave: function() {
 						$navPanelToggle.addClass('alt');
+						$catPanelToggle.addClass('alt');     // Catalog Panel.
 					}
 				});
 
@@ -162,12 +166,36 @@
 					target: $body,
 					visibleClass: 'is-navPanel-visible'
 				});
+			
+		// Catalog Panel.
+			$tocPanel = $(
+				'<div id="tocPanel">' +
+					'<div id="toc">' +
+					'</div>' +
+					'<a href="#tocPanel" class="close"></a>' +
+				'</div>'
+			)
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'left',
+					target: $body,
+					visibleClass: 'is-tocPanel-visible'
+				});
+
 
 			// Get inner.
 				$navPanelInner = $navPanel.children('nav');
+				$tocInner = $tocPanel.children('#toc');  // tocPanel
 
 			// Move nav content on breakpoint change.
 				var $navContent = $nav.children();
+				var $tocContent = $toc.children();  //tocPanel
+					$tocContent.appendTo($tocInner)  //tocPanel
 
 				breakpoints.on('>medium', function() {
 
@@ -193,9 +221,10 @@
 
 			// Hack: Disable transitions on WP.
 				if (browser.os == 'wp'
-				&&	browser.osVersion < 10)
-					$navPanel
-						.css('transition', 'none');
+				&&	browser.osVersion < 10) {
+					$navPanel.css('transition', 'none');
+					$toc.css('transition', 'none');
+				}
 
 	// Intro.
 		var $intro = $('#intro');
@@ -255,77 +284,5 @@
 			});
 
 		}
-	
-	// Catalog Panel.
-
-	// Toggle.
-		
-
-		// alert($catPanelToggle.is(':checked'));
-
-		// Change toggle styling once we've scrolled past the top.
-			$top.scrollex({
-				bottom: '5vh',
-				enter: function() {
-					$catPanelToggle.removeClass('alt');
-				},
-				leave: function() {
-					$catPanelToggle.addClass('alt');
-				}
-			});
-
-	// Panel.
-		$navPanel = $(
-			'<div id="navPanel">' +
-				'<nav>' +
-				'</nav>' +
-				'<a href="#navPanel" class="close"></a>' +
-			'</div>'
-		)
-			.appendTo($body)
-			.panel({
-				delay: 500,
-				hideOnClick: true,
-				hideOnSwipe: true,
-				resetScroll: true,
-				resetForms: true,
-				side: 'right',
-				target: $body,
-				visibleClass: 'is-navPanel-visible'
-			});
-
-		// Get inner.
-			$navPanelInner = $navPanel.children('nav');
-
-		// Move nav content on breakpoint change.
-			var $navContent = $nav.children();
-
-			breakpoints.on('>medium', function() {
-
-				// NavPanel -> Nav.
-					$navContent.appendTo($nav);
-
-				// Flip icon classes.
-					$nav.find('.icons, .icon')
-						.removeClass('alt');
-
-			});
-
-			breakpoints.on('<=medium', function() {
-
-				// Nav -> NavPanel.
-					$navContent.appendTo($navPanelInner);
-
-				// Flip icon classes.
-					$navPanelInner.find('.icons, .icon')
-						.addClass('alt');
-
-			});
-
-		// Hack: Disable transitions on WP.
-			if (browser.os == 'wp'
-			&&	browser.osVersion < 10)
-				$navPanel
-					.css('transition', 'none');
 	
 })(jQuery);
