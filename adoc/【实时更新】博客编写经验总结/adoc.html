@@ -1,18 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!--  以上代码IE=edge告诉IE使用最新的引擎渲染网页  -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
-<title>【实时更新】博客编写经验总结</title>
-<link rel="stylesheet" href="../../assets/css/colony.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body class="book toc2 toc-left">
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Yakecan's Blog</title>
+		<link rel="icon" href="../../images/index/leaf.ico" type="image/x-icon">  <!-- 在网页标题左侧显示图标 -->
+		<link rel="shortcut icon" href="../../images/index/leaf.ico" type="image/x-icon">  <!-- 在收藏夹显示图标-->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">  <!--  IE=edge，IE使用最新的引擎渲染网页  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="generator" content="Asciidoctor 2.0.10">
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/a-main.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/jquery.fancybox.min.css">
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="top">
+					<a href="../../index.html" class="logo">Yakecan's Blog</a>
+				</header>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="../../index.html">首页 firstpage</a></li>
+						<li><a href="../../story.html">故事 story</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/YakecanT" class="icon brands style2 fa-github" target="_blank"></a></li>
+						<li><a href="https://www.douban.com/people/209132162/" class="icon diao style2 icon-douban" target="_blank"></a></li>
+						<li><a href="https://www.linkedin.com/in/%E5%A4%A9%E9%98%B3-%E9%99%88-300201150/" class="icon brands style2 fa-linkedin" target="_blank"></a></li>
+						<li><a href="mailto:itarinchen@gmail.com" class="icon style2 fa-envelope"></a></li>
+					</ul>
+				</nav>
+
+				<!-- Catalog 目录 -->
+					<a href="#tocPanel" id="catPanelToggle">
+						目录
+					</a>
+
+
+				<!-- Main -->
+					<div id="main">
+<div class="book toc2 toc-left">
 <div id="header">
 <h1>【实时更新】博客编写经验总结</h1>
+<div class="details">
+<span id="author" class="author">江小折</span><br>
+<span id="revdate">2020-02-21</span>
+</div>
 <div id="toc" class="toc2">
 <div id="toctitle">目录</div>
 <ul class="sectlevel1">
@@ -32,7 +72,14 @@
 <li><a href="#_页面编辑技巧使用asciidoctor模板完成博客页面书写">5. 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</a>
 <ul class="sectlevel2">
 <li><a href="#_asciidoctor的安装">5.1. AsciiDoctor的安装</a></li>
-<li><a href="#_asciidoctor_stylesheet_factory_模板工厂">5.2. AsciiDoctor-stylesheet-factory （模板工厂）</a></li>
+<li><a href="#_asciidoctor_stylesheet_factory_模板工厂">5.2. AsciiDoctor-stylesheet-factory （模板工厂）</a>
+<ul class="sectlevel3">
+<li><a href="#_安装">5.2.1. 安装</a></li>
+<li><a href="#_生成模板">5.2.2. 生成模板</a></li>
+<li><a href="#_使用模板渲染生成html">5.2.3. 使用模板渲染生成html</a></li>
+<li><a href="#_制作自己的模板">5.2.4. 制作自己的模板</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -45,7 +92,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>提供作为小白的博主，从0开始编写本博客的所有经验技巧</p>
+<p>提供从0开始编写本博客的经验技巧</p>
 </li>
 <li>
 <p>由于每个人的知识体系不完全相同，一定会遇到不太明白的地方，不用管，直接往下操作，操作结束了就会有自己的认识</p>
@@ -147,6 +194,8 @@ gem sources -a https://gems.ruby-china.com/  //新增ruby gems源</pre>
 <div class="paragraph">
 <p>参考<a href="https://asciidoctor.cn/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/">AsciiDoctor模板文档</a></p>
 </div>
+<div class="sect3">
+<h4 id="_安装">5.2.1. 安装</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -184,8 +233,11 @@ gem sources -a https://gems.ruby-china.com/  //新增ruby gems源</pre>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_生成模板">5.2.2. 生成模板</h4>
 <div class="paragraph">
-<p>安装好相应的gems后，便可以开始制作模板。</p>
+<p>安装好相应的gems后，便可以开始生成模板。</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -207,6 +259,9 @@ gem sources -a https://gems.ruby-china.com/  //新增ruby gems源</pre>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_使用模板渲染生成html">5.2.3. 使用模板渲染生成html</h4>
 <div class="paragraph">
 <p>现在可以尝试用生成的模板渲染自己的adoc，示例adoc名称为mysample.adoc</p>
 </div>
@@ -240,12 +295,45 @@ puts "Hello, World!"</pre>
 <p>上述命令会将colony.css中的内容放到渲染出的html中。</p>
 </div>
 <div class="paragraph">
-<p>如果希望建立html到css的href，增加一句linkass即可，示例如下：</p>
+<p>如果希望建立html到css的href，增加一句linkcss即可，示例如下：</p>
 </div>
 <div class="listingblock">
-<div class="title">增加href</div>
+<div class="title">以href的形式加入</div>
 <div class="content">
 <pre>asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>这样就可以保证输出的html的header不会充满了大量的预定义class，从而增加html的可读性</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_制作自己的模板">5.2.4. 制作自己的模板</h4>
+<div class="paragraph">
+<p>如上所示，我们可以使用asciidoctor支持的css模板渲染adoc，生成html。但是生成的html属于纯阅读型文档，并不能附带博客模板的各种奇幻效果。因此，接下来将展示，如何自己debug将asciidoctor模板css与massively HTML5模板css合并，实现每页博客的酷炫效果。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>若需补充相关css知识，见 <a href="../【前端笔记】HTML和CSS/adoc.html">【前端笔记】HTML和CSS</a></p>
+</div>
+<div class="paragraph">
+<p>若需补充相关Python知识，见 link:todo</p>
+</div>
+<div class="paragraph">
+<p>若需补充相关JavaScript和JQuery知识，见 link:todo</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>todo</p>
 </div>
 </div>
 </div>
@@ -254,18 +342,37 @@ puts "Hello, World!"</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-21 16:18:51 +0800
+Last updated 2020-02-25 18:07:36 +0800
 </div>
 </div>
+</div>
+					</div>
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/tmain.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="assets/js/jquery.fancybox.min.js"></script>
-</body>
+				</div>
+
+			</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul>
+						<li>&copy; Powered by <a href="https://html5up.net">HTML5 UP</a> </li>
+						<li>Design: Yakecan Tony</li>
+					</ul>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+			<script src="../../assets/js/a-main.js"></script>
+			<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+			<script src="../../assets/js/jquery.fancybox.min.js"></script>
+
+
+	</body>
 </html>

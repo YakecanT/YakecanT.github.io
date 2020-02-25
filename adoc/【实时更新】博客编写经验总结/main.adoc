@@ -1,10 +1,13 @@
+// main
 :toc: left
 :toc-label: 目录
 :toclevels: 4
 :doctype: book
-:imagesdir: ./images
 :pygments-style: autumn
+
+// each
 :sectnums:
+:imagesdir: ./images
 :sectnumlevels: 4
 :chapter-label: 
 :example-caption: 例
@@ -13,12 +16,13 @@
 :table-caption: 表
 :appendix-caption: 附录
 :icons: font
-:version-label: 版本号
+:revdate: 2020-02-21
 
 = 【实时更新】博客编写经验总结
+江小折
 
 == 前言
-. 提供作为小白的博主，从0开始编写本博客的所有经验技巧
+. 提供从0开始编写本博客的经验技巧
 . 由于每个人的知识体系不完全相同，一定会遇到不太明白的地方，不用管，直接往下操作，操作结束了就会有自己的认识
 
 === 适合读者
@@ -132,17 +136,25 @@ asciidoctor -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 ----
 asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../stylesheets mysample.adoc
 ----
-// asciidoctor -a linkcss -a stylesheet=colony.css -a stylesdir=../../assets/css ./adoc/【实时更新】博客编写经验总结/main.adoc
+// asciidoctor -a linkcss -a stylesheet=a-main.css -a stylesdir=../../assets/css ./adoc/【实时更新】博客编写经验总结/main.adoc
 
 这样就可以保证输出的html的header不会充满了大量的预定义class，从而增加html的可读性
 
 ==== 制作自己的模板
 
-若需补充相关css知识，见 link:../【前端笔记】HTML和CSS/main.adoc[【前端笔记】HTML和CSS]
+如上所示，我们可以使用asciidoctor支持的css模板渲染adoc，生成html。但是生成的html属于纯阅读型文档，并不能附带博客模板的各种奇幻效果。因此，接下来将展示，如何自己debug将asciidoctor模板css与massively HTML5模板css合并，实现每页博客的酷炫效果。
 
-只需在本地Asciidoctor stylesheet factory代码库的sass文件夹下，创建sass文件，并修改sass下的setting即可。
+[TIP]
+====
+若需补充相关css知识，见 link:../【前端笔记】HTML和CSS/adoc.html[【前端笔记】HTML和CSS]
 
-这里以blog.sass为例
+若需补充相关Python知识，见 link:todo
+
+若需补充相关JavaScript和JQuery知识，见 link:todo
+====
+
+todo
+
 
 
 

@@ -17,14 +17,3 @@
 :appendix-caption: 附录
 :icons: font
 :revdate: 2020-02-21
-
-= 【前端笔记】HTML和CSS
-江小折 
-
-本文记录了HTML和CSS学习中的一些特殊用法，采用目录式结构，方便查询。
-
-include::base.adoc[]
-
-include::method.adoc[]
-
-

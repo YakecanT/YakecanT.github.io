@@ -1,0 +1,2430 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Yakecan's Blog</title>
+		<link rel="icon" href="../../images/index/leaf.ico" type="image/x-icon">  <!-- 在网页标题左侧显示图标 -->
+		<link rel="shortcut icon" href="../../images/index/leaf.ico" type="image/x-icon">  <!-- 在收藏夹显示图标-->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">  <!--  IE=edge，IE使用最新的引擎渲染网页  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="generator" content="Asciidoctor 2.0.10">
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/a-main.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/jquery.fancybox.min.css">
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="top">
+					<a href="../../index.html" class="logo">Yakecan's Blog</a>
+				</header>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="../../index.html">首页 firstpage</a></li>
+						<li><a href="../../story.html">故事 story</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/YakecanT" class="icon brands style2 fa-github" target="_blank"></a></li>
+						<li><a href="https://www.douban.com/people/209132162/" class="icon diao style2 icon-douban" target="_blank"></a></li>
+						<li><a href="https://www.linkedin.com/in/%E5%A4%A9%E9%98%B3-%E9%99%88-300201150/" class="icon brands style2 fa-linkedin" target="_blank"></a></li>
+						<li><a href="mailto:itarinchen@gmail.com" class="icon style2 fa-envelope"></a></li>
+					</ul>
+				</nav>
+
+				<!-- Catalog 目录 -->
+					<a href="#tocPanel" id="catPanelToggle">
+						目录
+					</a>
+
+
+				<!-- Main -->
+					<div id="main">
+<div class="book toc2 toc-left">
+<div id="header">
+<h1>【前端笔记】HTML和CSS</h1>
+<div class="details">
+<span id="author" class="author">江小折</span><br>
+<span id="revdate">2020-02-21</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<ul class="sectlevel1">
+<li><a href="#_设计模式基础">1. 设计模式基础</a>
+<ul class="sectlevel2">
+<li><a href="#_css语法详解">1.1. CSS语法详解</a>
+<ul class="sectlevel3">
+<li><a href="#_使用属性值">1.1.1. 使用属性值</a></li>
+<li><a href="#_使用层叠顺序">1.1.2. 使用层叠顺序</a></li>
+<li><a href="#_简化层叠顺序">1.1.3. 简化层叠顺序</a></li>
+<li><a href="#_css属性与值常用">1.1.4. CSS属性与值：常用</a></li>
+<li><a href="#_css属性与值内容">1.1.5. CSS属性与值：内容</a></li>
+<li><a href="#_css属性与值内容_2">1.1.6. CSS属性与值：内容</a></li>
+<li><a href="#_css属性与值布局">1.1.7. CSS属性与值：布局</a></li>
+<li><a href="#_css属性与值专用">1.1.8. CSS属性与值：专用</a></li>
+<li><a href="#_选择器">1.1.9. 选择器</a></li>
+<li><a href="#_媒体查询">1.1.10. 媒体查询</a></li>
+<li><a href="#_灵活尺寸单位">1.1.11. 灵活尺寸单位</a></li>
+<li><a href="#_固定度量单位">1.1.12. 固定度量单位</a></li>
+<li><a href="#_96dpi下度量单位的换算">1.1.13. 96dpi下度量单位的换算</a></li>
+<li><a href="#_96dpi下的常用字号">1.1.14. 96dpi下的常用字号</a></li>
+<li><a href="#_过渡动画与2d变换">1.1.15. 过渡、动画与2D变换</a></li>
+<li><a href="#_修复css错误">1.1.16. 修复CSS错误</a></li>
+</ul>
+</li>
+<li><a href="#_html设计模式">1.2. HTML设计模式</a>
+<ul class="sectlevel3">
+<li><a href="#_html结构">1.2.1. HTML结构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_设计模式方法">2. 设计模式方法</a>
+<ul class="sectlevel2">
+<li><a href="#_旁注下沉_图片文本替换">2.1. 旁注下沉 图片文本替换</a></li>
+</ul>
+</li>
+<li><a href="#_html模板">3. HTML模板</a>
+<ul class="sectlevel2">
+<li><a href="#_基础结构">3.1. 基础结构</a></li>
+<li><a href="#_页头元素">3.2. 页头元素</a></li>
+<li><a href="#_结构块元素">3.3. 结构块元素</a></li>
+<li><a href="#_终止块元素">3.4. 终止块元素</a></li>
+<li><a href="#_多功能块元素">3.5. 多功能块元素</a></li>
+<li><a href="#_行内元素">3.6. 行内元素</a></li>
+<li><a href="#_类和id属性">3.7. 类和ID属性</a></li>
+<li><a href="#_html空白字符">3.8. HTML空白字符</a></li>
+</ul>
+</li>
+<li><a href="#_css选择器与继承">4. CSS选择器与继承</a>
+<ul class="sectlevel2">
+<li><a href="#_类型选择器">4.1. 类型选择器</a></li>
+<li><a href="#_位置选择器">4.2. 位置选择器</a></li>
+<li><a href="#_属性选择器">4.3. 属性选择器</a></li>
+<li><a href="#_伪元素选择器">4.4. 伪元素选择器</a></li>
+<li><a href="#_伪类选择器">4.5. 伪类选择器</a></li>
+<li><a href="#_子类选择器">4.6. 子类选择器</a></li>
+<li><a href="#_继承">4.7. 继承</a></li>
+<li><a href="#_可视化继承">4.8. 可视化继承</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>本文记录了HTML和CSS学习中的一些特殊用法，采用目录式结构，方便查询。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_设计模式基础">1. 设计模式基础</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_css语法详解">1.1. CSS语法详解</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>文件必须采用unicode utf-8作为编码格式</p>
+</li>
+<li>
+<p>css代码必须小写</p>
+</li>
+<li>
+<p>元素名称、类名和ID只能使用字母、数字、下划线_、连字符-和Unicode字符</p>
+</li>
+<li>
+<p>使用空格分隔多个类名，可以将多个类同时赋值给一个元素</p>
+</li>
+<li>
+<p>常量值不能加引号。如color:black是对的，而color:"black"是错的</p>
+</li>
+<li>
+<p>反斜杠（\）可用于转义（插入特定情况下不能出现的字符）</p>
+</li>
+<li>
+<p>字符串可以包含括号、逗号、空格、单引号（'）、双引号（"），但必须加反斜杠转义</p>
+</li>
+<li>
+<p>每一个CSS规则和@import语句都必须以<strong>分号</strong>结束</p>
+</li>
+<li>
+<p>使用花括号可以将多个规则组合成<strong>规则集</strong></p>
+</li>
+<li>
+<p>除非加双引号转换为一个字符串（如"}"），否则<strong>右花括号</strong>（}）表示一组属性结束</p>
+</li>
+<li>
+<p>CSS注释以 /* 开头，以 */ 结束，注释不可以嵌套</p>
+</li>
+<li>
+<p>CSS属性名若由多个单词组成，使用连字符-分隔单词，空格无效</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_使用属性值">1.1.1. 使用属性值</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>color:black;</p>
+<div class="paragraph">
+<p>black为常量，color属性可以赋值170多个颜色常量</p>
+</div>
+</li>
+<li>
+<p>background-color:white;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>background-color:rgb(100%,100%,100%);</p>
+</li>
+<li>
+<p>background-color:rgb(255,255,255);</p>
+</li>
+<li>
+<p>background-color:WindowInfoBackground;</p>
+<div class="paragraph">
+<p>操作系统颜色常量，用驼峰格式表示；</p>
+</div>
+<div class="paragraph">
+<p><strong>注意：</strong>每当给同一个元素指定相同属性时，新规则会覆盖钱一个规则，这里一行中包含了4个background-color规则，最终生效的是最后一个规则。</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>font-style:italic;&lt;normal,oblique&gt;</p>
+</li>
+<li>
+<p>font-size:20px;</p>
+<div class="paragraph">
+<p>大多数属性都支持不同的度量单位，有px（像素）、em（字体或font-size的高度）、ex（字母x的高度）、pt（点距，即1/72英寸）、in（英寸）、cm（厘米）、mm（毫米）、pc（12点活字，即12个点距或1/6英寸）</p>
+</div>
+</li>
+<li>
+<p>font-family:"Century Gothic",verdana,arial,sans-serif;</p>
+<div class="paragraph">
+<p>一组以逗号分隔的字体名称，如果一种字体无效，那么浏览器会使用第二种字体，以此类推。最后一种字体必须是常用字体：serif、sans-serif、cursive、fantasy、monospace。如果字体名带有空格，必须加上引号</p>
+</div>
+</li>
+<li>
+<p>line-hight:150%;</p>
+<div class="paragraph">
+<p>将行高设为font-size值的150%</p>
+</div>
+</li>
+<li>
+<p>margin:1em;</p>
+<div class="paragraph">
+<p>将margin设置为字号的1倍大小（即font-size乘以1）</p>
+</div>
+</li>
+<li>
+<p>border:4px double black;</p>
+<div class="paragraph">
+<p>将边框设置为宽4像素的黑色双实线，border使用3个空格分隔的值，分别表示边框宽度、样式和颜色，可以任意排列，border是border-width、border-style和border-color的简写属性，其他的简写属性还有background, font, liststyle, margin, padding</p>
+</div>
+</li>
+<li>
+<p>background-image:url("gradient.jpg");</p>
+<div class="paragraph">
+<p>使用url函数设置图片，url函数只有一个参数为文件的URL。当URL包含空格时必须添加双引号。</p>
+</div>
+</li>
+<li>
+<p>background-repeat:repeat-x;</p>
+<div class="paragraph">
+<p>将background-repeat设置为常量值repeat-x。还可以设置为repeat-y、repeat或no-repeat</p>
+</div>
+</li>
+<li>
+<p>margin:0;</p>
+<div class="paragraph">
+<p>0是唯一不适用度量单位的值。</p>
+</div>
+</li>
+<li>
+<p>font-weight:900;</p>
+<div class="paragraph">
+<p>将font-weight设置为常量900，这个数值实际上是一个常量。浏览器一般支持normal和bold，而bolder、lighter、100、200、&#8230;&#8203;、900支持较差。</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>在属性名称之前加上数字1或任意字符，就可以禁用一个规则</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_使用层叠顺序">1.1.2. 使用层叠顺序</h4>
+<div class="paragraph">
+<p>选择器分组的优先级排序：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>最高优先级：添加了!important规则的分组，会覆盖所有不含!important的规则</p>
+<div class="paragraph">
+<p>#i100{border:6px solid black !important;}</p>
+</div>
+</li>
+<li>
+<p>第二优先级：style属性所嵌入的规则，但是style属性的代码难以维护，不推荐使用</p>
+</li>
+<li>
+<p>第三优先级：具有一个或多个ID选择器的规则</p>
+<div class="paragraph">
+<p>#i100{border:6px solid black;}</p>
+</div>
+</li>
+<li>
+<p>第四优先级：具有一个或多个类、属性或伪选择器的规则</p>
+<div class="paragraph">
+<p>*.c10{border:4px solid black;}</p>
+</div>
+</li>
+<li>
+<p>第五优先级：具有一个或多个元素选择器的规则</p>
+<div class="paragraph">
+<p>div{border:2px solid black;}</p>
+</div>
+</li>
+<li>
+<p>最低优先级：只包含通配选择器的规则</p>
+<div class="paragraph">
+<p>*{border:0px solid black;}</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>如果竞争规则属于同一个选择器分组，优先级会根据选择器的类型和数量进行比较，<strong>具有更多高优先级选择器</strong>的选择器分组优先级更高。</p>
+</div>
+<div class="paragraph">
+<p>如果竞争规则选择器分组、选择器的类型和数量都相同，会进一步按照位置优先级进行比较：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>最高优先级：HTML文档头部的&lt;style&gt;元素</p>
+</li>
+<li>
+<p>第二优先级：&lt;style&gt;元素中@import导入的样式表</p>
+</li>
+<li>
+<p>第三优先级：&lt;link&gt;元素附加的样式表</p>
+</li>
+<li>
+<p>第四优先级：&lt;link&gt;元素附加的样式表中，@import语句导入的样式表</p>
+</li>
+<li>
+<p>第五优先级：最终用户附加的样式表</p>
+</li>
+<li>
+<p>最低优先级：浏览器提供的默认样式表</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_简化层叠顺序">1.1.3. 简化层叠顺序</h4>
+<div class="paragraph">
+<p>减少样式表数量、不使用@import语句、避免!important操作符、对选择器按照层叠顺序在css中进行排序：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/*通配选择器*/
+/*元素选择器*/
+/*类\属性\伪选择器*/
+/*ID选择器*/
+
+/*!important 通配选择器*/
+/*!important 元素选择器*/
+/*!important 类\属性\伪选择器*/
+/*!important ID选择器*/</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_css属性与值常用">1.1.4. CSS属性与值：常用</h4>
+<div class="paragraph">
+<p>i表示属性是继承的</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 1. CSS属性与值：常用</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">属性名</th>
+<th class="tableblock halign-left valign-top">属性常用值</th>
+<th class="tableblock halign-left valign-top">功能/备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">background-color</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transparent, COLOR</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">background-image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, url("file.jpg")</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">background-repeat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">repeat, repeat-x, repeat-y, no-repeat</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">background-attachment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">scroll, fixed</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">background-position</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0% 0%, H% V%, H V, left top, left center, left bottom, right top, right center, right bottom, center top, center center, center bottom</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">border</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WIDTH STYLE COLOR</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">border-width</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">medium, LENGTH, thin, thick</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">border-style</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">border-color</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">black, COLOR</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">border-left/right/top/bottom-width/style/color</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">与上述border对应的值，分别对应</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cursor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, default, pointer, help, wait, progress, move, crosshair, text, n-resize, s-resize, e-resize, w-resize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inline,none,block,inline-block,list-item,table-cell,table,table-row</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visibility</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visible,hidden</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_css属性与值内容">1.1.5. CSS属性与值：内容</h4>
+<div class="paragraph">
+<p>内容属性适用于除表格行外的所有元素</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 2. CSS属性与值：常用</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">属性名</th>
+<th class="tableblock halign-left valign-top">属性常用值</th>
+<th class="tableblock halign-left valign-top">功能/备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">color</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">direction</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">etter-spacing</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-family</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-size</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-style</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-variant</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-weight</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">left</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">margin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">margin-left/right/top/bottom</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">overflow</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">position</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">right</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-indent</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-align</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-decoration</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-transform</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-align</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unicode-bidi</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vertical-align</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">white-space</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">word-spacing</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">z-index</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_css属性与值内容_2">1.1.6. CSS属性与值：内容</h4>
+<div class="paragraph">
+<p>内容属性适用于除表格行外的所有元素</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 3. CSS属性与值：内容</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">属性名</th>
+<th class="tableblock halign-left valign-top">属性常用值</th>
+<th class="tableblock halign-left valign-top">功能/备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">padding[-left/right/top/bottom]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">caption, icon, menu, message-box, small-caption, status-bar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-family</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">serig, FONTLIST, sans-serif, monospace, fantasy, cursive</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-size</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">medium, LENGTH, %ParentElementFontSize, xx-small, x-small, smaller, small, large, larger, x-large, xx-large</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-style</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, italic, oblique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-variant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, small-caps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">font-weight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, lighter, bold, bolder, [1-9]00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-decoration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, underline, line-through, overline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-transform</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, lowercase, uppercase, capitalize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ltr, rtl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unicode-bidi</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, bidi-override, embed</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">line-height</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, LENGTH, %FontSize, MULTIPLIER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">letter-spacing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, LENGTH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">white-space</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, pre, nowrap</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">word-spacing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, LENGTH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">color</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#rrggbb, #rgb, rgb(RED,GREEN,BLUE), rgb(RED%,GREEN%,BLUE%), &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i   <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/color_value">颜色对照表</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_css属性与值布局">1.1.7. CSS属性与值：布局</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 4. 浮动属性适用于除单元格和行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">属性名</th>
+<th class="tableblock halign-left valign-top">属性常用值</th>
+<th class="tableblock halign-left valign-top">功能/备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">float</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, left, right</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 5. 复位属性适用于除行内、行内块、单元格和行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, left, right, both</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 6. 定位属性适用于除单元格和行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">position</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">static, relative; absolute, fixed</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, LENGTH, %WidthOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">right</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, LENGTH, %WidthOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">top</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, LENGTH, %HeightOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bottom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, LENGTH, %HeightOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">z-index</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, INTEGER</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 7. 水平外边距属性适用于除单元格和行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">margin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %WidthOfContainingBlock, auto</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">margin-left/right</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %WidthOfContainingBlock, auto</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 8. 垂直外边距属性适用于除行内、单元格和行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">margin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %WidthOfContainingBlock, auto</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">margin-top/bottom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %WidthOfContainingBlock, auto</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 9. 宽度属性适用于除行内与行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">width</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, LENGTH, %WidthOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min-width</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %WidthOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max-width</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, LENGTH, %WidthOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 10. 高度属性适用于除行内与行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">height</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, LENGTH, %HeightOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min-height</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %HeightOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max-height</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, LENGTH, %HeightOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">overflow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %WidthOfContainingBlock, auto</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 11. 内容布局属性适用于除行内、表格和行以外的所有元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-indent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0, LENGTH, %WidthOfContainingBlock</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text-align</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">left, center, right, justify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">overflow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visible, hidden, auto, scroll</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_css属性与值专用">1.1.8. CSS属性与值：专用</h4>
+<div class="paragraph">
+<p>内容属性适用于除表格行外的所有元素</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 12. 列表属性仅适用于列表元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">属性名</th>
+<th class="tableblock halign-left valign-top">属性常用值</th>
+<th class="tableblock halign-left valign-top">功能/备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-style</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TYPE POSITION IMAGE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-style-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">disc, circle, square, none, decimal, lower-alpha, upper-alpha, lower-roman, upper-roman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-style-position</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">outside, inside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list-style-image</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none, url("file.jpg")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 13. 表格属性仅适用于表格元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">border-collapse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">separate, collapse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">i</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">table-layout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, fixed</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 14. 单元格属性仅适用于单元格元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vertical-align</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">baseline, bottom, middle, top</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 15. 行内属性仅适用于行内和行内块元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vertical-align</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">baseline, LENGTH, #LineHeight, text-bottom, text-top, middle, top, bottom</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 16. 换页属性仅适用于块和表格元素</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page-break-after</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, always, avoid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">page-break-before</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto, always, avoid</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_选择器">1.1.9. 选择器</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 17. 选择器</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">选择器</th>
+<th class="tableblock halign-left valign-top">注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有&lt;p&gt;元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*.c {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有class="c"的元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p.c {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有class="c"的&lt;p&gt;元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#main {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择id="main"的一个元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a:link {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有未访问的超链接</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a:visited {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有已访问的超链接</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a:hover {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有鼠标悬停的超链接</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a:active {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择当前激活的超链接</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a:focus {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有聚焦的超链接</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p:first-letter {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有&lt;p&gt;元素的第一个字母</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p:first-line {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有&lt;p&gt;元素的第一行</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p:first-child {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有&lt;p&gt;元素的第一个子元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tr:nth-child(even) {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择表格的偶数行</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tr:nth-child(2n+0) {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">同上</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tr:nth-child(10n+9) {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择第9、19、29……行</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#n *.c :first-line {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">后代元素选择器示例</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#n &gt; *.c &gt; :first-line {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">子元素选择器实例</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#n + *.c + :first-line {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">友邻元素选择器示例</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">#n , *.c , :first-line {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">给不同的选择器应用相同的属性</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*[title] {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有带title属性的元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*[title="WORD"] {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择所有title属性包含"WORD"的元素</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*[title="EXACT_MATCH_OF_ENTIRE_VALUE"] {}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">选择与属性值完全匹配的所有元素</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_媒体查询">1.1.10. 媒体查询</h4>
+<div class="paragraph">
+<p>CSS支持设置与媒体相关联的样式表，它们可以适合不同媒体类型的显示。</p>
+</div>
+<div class="paragraph">
+<p>更多信息见：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries">W3S媒体查询</a></p>
+</div>
+<div class="paragraph">
+<p>常见媒体特性：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>width, device-width</p>
+</li>
+<li>
+<p>height, device-height</p>
+</li>
+<li>
+<p>orientation</p>
+</li>
+<li>
+<p>aspect-ratio, device-aspect-ratio</p>
+</li>
+<li>
+<p>color, color-index</p>
+</li>
+<li>
+<p>monochrome（如果不是monochrome设备，则等于0）</p>
+</li>
+<li>
+<p>resolution</p>
+</li>
+<li>
+<p>scan（指tv输出设备的扫描过程）</p>
+</li>
+<li>
+<p>grid（指输出设备为栅格型或位图型）</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_灵活尺寸单位">1.1.11. 灵活尺寸单位</h4>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/base/v_unit.png" alt="v unit">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_固定度量单位">1.1.12. 固定度量单位</h4>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/base/f_unit.png" alt="f unit">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_96dpi下度量单位的换算">1.1.13. 96dpi下度量单位的换算</h4>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/base/96dpi.png" alt="96dpi">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_96dpi下的常用字号">1.1.14. 96dpi下的常用字号</h4>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/base/96dpi_font.png" alt="96dpi font">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_过渡动画与2d变换">1.1.15. 过渡、动画与2D变换</h4>
+<div class="paragraph">
+<p>过渡：允许CSS属性值在指定时间间隔内平滑地变化，在属性值发生变化时触发</p>
+</div>
+<div class="paragraph">
+<p>动画：允许CSS属性值在指定时间间隔内平滑地变化，在动画属性生效时执行</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_修复css错误">1.1.16. 修复CSS错误</h4>
+<div class="paragraph">
+<p>检查顺序</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>验证HTML文档的有效性，保证无语法问题</p>
+</li>
+<li>
+<p>验证每一个CSS样式表</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>保证在非零度量值之后使用正确的度量单位</p>
+</li>
+<li>
+<p>保证属性名称与值之间只有一个冒号</p>
+</li>
+<li>
+<p>保证每一条规则均以分号（；）结尾</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>使用Mozilla浏览器的错误控制台，检查CSS解析错误清单</p>
+</li>
+<li>
+<p>确认选择器选择且只选择了全部应该选择的元素，只需要在选择器中添加outline:2px solid invert;，就能够看到选择器的结果。</p>
+</li>
+<li>
+<p>仔细检查每一个没有成功应用的规则的层叠优先级</p>
+</li>
+<li>
+<p>确认样式表中元素、类和ID的大小写与HTML文档的大小写完全匹配</p>
+</li>
+<li>
+<p>仔细检查简写属性，是否遗漏了属性值，因为简写属性会将值赋给它所代表的全部属性。</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>包括margin, border, padding, background, font和list-style</p>
+</li>
+<li>
+<p>font是一个非常复杂的简写属性，且所有值都可以继承，一定要小心</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>确认浏览器加载了所有的样式表</p>
+</li>
+<li>
+<p>避免使用@import语句，尽量写在样式表开头，保证它的优先级低于样式表中的其他规则</p>
+</li>
+<li>
+<p>确认样式表加载顺序符合要求，讲&lt;link&gt;和@import语句按优先级升序排列</p>
+</li>
+<li>
+<p>确认服务器是将text/css作为CSS样式表的Content-Type头信息发送</p>
+</li>
+<li>
+<p>删除CSS样式表中可能存在的HTML元素，如&lt;style&gt;，且一定要删除HTML文档头部不小心添加的所有&lt;style&gt;子元素</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_html设计模式">1.2. HTML设计模式</h3>
+<div class="sect3">
+<h4 id="_html结构">1.2.1. HTML结构</h4>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 18. HTML结构</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">容器</th>
+<th class="tableblock halign-left valign-top">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;html&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;head&gt;&lt;body&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;head&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;title&gt; &amp; (&lt;meta&gt;|&lt;link&gt;|&lt;object&gt;|&lt;script&gt;|&lt;base&gt;)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;body&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;noscript&gt;&lt;div&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;noscript&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;article&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;section&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;nav&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;div&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;h1&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;p&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;ol&gt;或&lt;ul&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;li&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;li&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;dl&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;dt&gt;&lt;dd&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;dt&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;dd&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;table&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;caption&gt;&lt;colgroup&gt;&lt;thead&gt;&lt;tfoot&gt;&lt;tbody&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;caption&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;colgroup&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;col&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;col&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;thread&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;tr&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;tfoot&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;tr&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;tbody&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;tr&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;tr&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;th&gt;&lt;td&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;th&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;td&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;form&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块（&lt;form&gt;除外）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;fieldset&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块（&lt;form&gt;除外）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;label&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块（&lt;label&gt;除外）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;input&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;textarea&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">文本</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;select&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;optgroup&gt;/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;option&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;optgroup&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;option&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;option&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">文本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;button&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块（&lt;a&gt;、&lt;form&gt;、控件除外）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;address&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;a&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内（&lt;a&gt;除外）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;img&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;canvas&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;audio&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;video&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;map&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;area&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;area&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;object&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;param&gt;/</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">行内/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">块</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;param&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;br&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">无内容；带结束斜线的单个标签（如&lt;br /&gt;）</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">文本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unicode文本，包括解析和替换的HTML实体</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 19. 块级元素，包括结构块、多功能块、终止块</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">结构块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-&lt;ol&gt; &lt;ul&gt; &lt;dl&gt; &lt;table&gt; &lt;tr&gt; &lt;thead&gt; &lt;tfoot&gt; &lt;tbody&gt; &lt;colgroup&gt; &lt;col&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">多功能块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;div&gt; &lt;li&gt; &lt;dd&gt; &lt;td&gt; &lt;th&gt; &lt;form&gt; &lt;noscript&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">终止块</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;h1&gt; &lt;p&gt; &lt;dt&gt; &lt;caption&gt; &lt;address&gt; &lt;blockquote&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">表 20. 行内元素，包括以下3个大类和6个小类的行内元素</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>行内语义</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">包括由以下若干元素表示的文本</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">重要性</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;span&gt; &lt;em&gt; &lt;strong&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">短语</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;a&gt; &lt;cite&gt; &lt;code&gt; &lt;kbd&gt; &lt;samp&gt; &lt;var&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单词</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;abbr&gt; &lt;dfn&gt; &lt;cite&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">字符</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;sub&gt; &lt;sup&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>行内流动</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;br&gt; &lt;bdo&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>行内块式</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">包括替换元素和表单控件</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">替换</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;img&gt; &lt;object&gt; &lt;embed&gt; &lt;iframe&gt; &lt;audio&gt; &lt;video&gt; &lt;canvas&gt; &lt;svg&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">控件</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;input&gt; &lt;textarea&gt; &lt;select&gt; &lt;button&gt; &lt;label&gt; &lt;video&gt; （包括控件属性）</p></td>
+</tr>
+</tbody>
+</table>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/base/html.png" alt="html">
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/base/html2.png" alt="html2">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_设计模式方法">2. 设计模式方法</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_旁注下沉_图片文本替换">2.1. 旁注下沉 图片文本替换</h3>
+<div class="listingblock">
+<div class="title">mgd.html</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+ &lt;head&gt;
+    &lt;title&gt;Marginal Graphic Dropcap&lt;/title&gt;
+    &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+    &lt;link rel="stylesheet" href="page.css"   media="all"    type="text/css" /&gt;
+ &lt;/head&gt;
+
+ &lt;body&gt;
+
+ &lt;h1&gt;Marginal Graphic Dropcap&lt;/h1&gt;
+
+  &lt;p class="indent"&gt;&lt;span class="graphic-dropcap" &gt;M&lt;span&gt;&lt;/span&gt;&lt;/span&gt;arginal
+   Graphic Dropcap. The letter M has been covered by the dropcap image.
+   Screen readers read the text and visual users see the image.
+   If the browser cannot display the dropcap image,
+   the text becomes visible.&lt;/p&gt;
+
+ &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">page.css</div>
+<div class="content">
+<pre class="highlight"><code class="language-css" data-lang="css">//将段落相对定位，增加120px的左外边距
+*.indent               { position:relative;  margin-left:120px; }
+
+//将下沉内容绝对定位，移到段落最左边，设置为与下沉图片相同尺寸
+*.graphic-dropcap      { position:absolute;
+                         width:120px; height:90px; left:-120px; top:0; }
+
+//下沉图片的span绝对定位，移到下沉文本之上，用背景图覆盖文本
+*.graphic-dropcap span { position:absolute;
+                         width:120px; height:90px; margin:0; left:0; top:0;
+                         background:url("m.jpg") no-repeat; }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>效果：</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/mgd.png" alt="mgd">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_html模板">3. HTML模板</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_基础结构">3.1. 基础结构</h3>
+<div class="listingblock">
+<div class="title">基础结构</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+
+&lt;head&gt;&lt;title&gt;HTML Structure&lt;/title&gt;
+  &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8"/&gt;
+  &lt;link rel="stylesheet" href="site.css" media="all" type="text/css"/&gt;
+  &lt;link rel="stylesheet" href="page.css" media="all" type="text/css"/&gt;
+  &lt;link rel="stylesheet" href="print.css" media="print" type="text/css"/&gt;
+  &lt;!--[if lte IE 6]&gt;
+  &lt;link rel="stylesheet" href="ie6.css" media="all" type="text/css"/&gt;
+  &lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;noscript&gt;Show this when script cannot run.&lt;/noscript&gt;
+&lt;div&gt;
+  &lt;h1&gt;HTML Structure&lt;/h1&gt;
+
+  &lt;p&gt;Paragraph&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;Ordered List Item&lt;/li&gt;
+    &lt;li&gt;Ordered List Item&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Unordered List Item&lt;/li&gt;
+    &lt;li&gt;Unordered List Item&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;Definition Term&lt;/dt&gt;
+    &lt;dt&gt;Definition Term&lt;/dt&gt;
+    &lt;dd&gt;Definition Data&lt;/dd&gt;
+    &lt;dd&gt;Definition Data&lt;/dd&gt;
+  &lt;/dl&gt;
+
+  &lt;table&gt;
+    &lt;caption&gt;Table Caption&lt;/caption&gt;
+    &lt;colgroup&gt;
+      &lt;col/&gt;
+      &lt;col/&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row1-col1&lt;/td&gt;
+      &lt;td&gt;row1-col2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row3-col1&lt;/td&gt;
+      &lt;td&gt;row3-col2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+  &lt;form id="form1" method="post" action="http://www.tipjar.com/cgi-bin/test"&gt;
+    &lt;input type="hidden" title="input hidden" name="hidden" value="Secret"/&gt;
+
+    &lt;input id="radio1" name="radios" type="radio" value="radio1" checked="checked"/&gt;
+    &lt;label for="radio1"&gt;Radio1&lt;/label&gt;
+
+    &lt;input id="radio2" name="radios" type="radio" value="radio2-pushed"/&gt;
+    &lt;label for="radio2"&gt;Radio2&lt;/label&gt;
+
+    &lt;input id="xbox1" name="xbox1" type="checkbox" value="xbox1" checked="checked"/&gt;
+    &lt;label for="xbox1"&gt;Checkbox1&lt;/label&gt;
+
+    &lt;label for="inputtext"&gt;Input-text&lt;/label&gt;
+    &lt;input id="inputtext" name="inputtext" type="text" value="Type here" size="14"/&gt;
+
+    &lt;label for="select1"&gt;Select&lt;/label&gt;
+    &lt;select id="select1" name="select" size="2"&gt;
+      &lt;option selected="selected" value="item1"&gt;Item1&lt;/option&gt;
+      &lt;option value="item2"&gt;Item2&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label for="textarea"&gt;Textarea&lt;/label&gt;
+    &lt;textarea id="textarea" name="textarea" rows="2" cols="10"&gt;Textarea&lt;/textarea&gt;
+
+    &lt;input type="submit" id="submit1" name="submit1" value="Submit"/&gt;
+    &lt;input type="reset" id="reset1" name="reset1" value="Reset"/&gt;
+    &lt;button type="submit" id="button1" name="button1" value="Button1"&gt;Button&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;div&gt;Division within a Division &lt;a id="link1" href="left.html"&gt;Link&lt;/a&gt;
+    &lt;img src="left-right.gif" width="20" height="20" usemap="#map1" alt="alt text"/&gt;
+    &lt;map id="map1" name="map1"&gt;
+      &lt;area href="left.html" alt="left" shape="rect" coords="0,0,10,20"/&gt;
+      &lt;area href="right.html" alt="right" shape="rect" coords="10,0,20,20"/&gt;
+    &lt;/map&gt;
+
+    &lt;span&gt;span&lt;/span&gt;
+    &lt;em&gt;em&lt;/em&gt;
+    &lt;strong&gt;strong&lt;/strong&gt;
+    &lt;cite&gt;cite&lt;/cite&gt;
+    &lt;code&gt;code&lt;/code&gt;
+    &lt;kbd&gt;kbd&lt;/kbd&gt;
+    &lt;samp&gt;samp&lt;/samp&gt;
+    &lt;var&gt;var&lt;/var&gt;
+    &lt;abbr&gt;abbr&lt;/abbr&gt;
+    &lt;dfn&gt;dfn&lt;/dfn&gt;
+    &lt;sub&gt;sub&lt;/sub&gt;
+    &lt;sup&gt;sup&lt;/sup&gt;
+    &lt;bdo dir="rtl"&gt;backwards&lt;/bdo&gt;
+
+    &lt;object type="application/x-shockwave-flash"&gt;
+      &lt;param name="movie" value="http://myserver.com/movie.swf"&gt;
+      &lt;param name="allowfullscreen" value=true&gt;
+    &lt;/object&gt;
+  &lt;/div&gt;
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h1&gt;My blog post&lt;/h1&gt;
+
+      &lt;p&gt;
+        &lt;time pubdate datetime="2011-10-07T10:00-08:00"&gt;&lt;/time&gt;
+      &lt;/p&gt;
+    &lt;/header&gt;
+    &lt;p&gt;The article element represents a self-contained composition in page that is independently distributable or
+      reusable, e.g. in syndication.&lt;/p&gt;
+    &lt;footer&gt;
+      &lt;a href="?comments=1"&gt;Show comments...&lt;/a&gt;
+    &lt;/footer&gt;
+  &lt;/article&gt;
+  &lt;section&gt;
+    &lt;h1&gt;First section heading&lt;/h1&gt;
+
+    &lt;p&gt;
+      The section element represents a generic section of a document (thematic grouping of content).
+    &lt;/p&gt;
+  &lt;/section&gt;
+  &lt;section&gt;
+    &lt;h1&gt;And one more section&lt;/h1&gt;
+
+    &lt;p&gt;A page could be split into sections for an introduction, news items, contact information, etc.&lt;/p&gt;
+  &lt;/section&gt;
+  &lt;nav&gt;
+    &lt;h1&gt;Some Navigation&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="articles.html"&gt;Index of articles&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="contact.html"&gt;Contact information&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;A nav element doesn't have to contain a list, it can contain other kinds of content as well.&lt;/p&gt;
+  &lt;/nav&gt;
+  &lt;address&gt;address&lt;/address&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>效果：</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/html_base.png" alt="html base">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_页头元素">3.2. 页头元素</h3>
+<div class="listingblock">
+<div class="title">页头元素</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+ &lt;head&gt;
+  &lt;title&gt;Header Elements&lt;/title&gt;
+
+  &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+
+
+  &lt;!-- 添加样式表链接 --&gt;
+  &lt;link rel="stylesheet" href="site.css"   media="all"    type="text/css" /&gt;
+  &lt;link rel="stylesheet" href="page.css"   media="all"    type="text/css" /&gt;
+  &lt;link rel="stylesheet" href="print.css"  media="print"  type="text/css" /&gt;
+  &lt;!--[if lte IE 6]&gt;
+  &lt;link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" /&gt;
+  &lt;![endif]--&gt;
+
+
+  &lt;!-- 添加其他用户可以应用的样式表（可选） --&gt;
+  &lt;link rel="alternate stylesheet" type="text/css" title="cool" href="cool.css" /&gt;
+  &lt;link rel="alternate stylesheet" type="text/css" title="hot"  href="hot.css"  /&gt;
+
+
+
+  &lt;!-- 添加仅应用于本页面的样式规则（可选） --&gt;
+  &lt;style type="text/css" media="all"&gt;
+   body  { margin:0px; padding:20px; padding-top:0px; width:702px;
+          font-family:verdana,arial,sans-serif; font-size:medium; }
+   h1    { margin:10px 0 10px 0; font-size:1.9em;  }
+  &lt;/style&gt;
+
+
+
+  &lt;!-- 添加JavaScript文件链接（可选） --&gt;
+  &lt;script type="text/javascript" src="script.js" &gt;&lt;/script&gt;
+
+
+  &lt;!-- 添加仅应用于本页面的Javascript代码（可选） --&gt;
+  &lt;script type="text/javascript" &gt;&lt;!--
+   alert("Hello World!");
+  --&gt;&lt;/script&gt;
+
+ &lt;/head&gt;
+
+ &lt;body&gt; &lt;h1&gt;Header Elements&lt;/h1&gt; &lt;p&gt;Look at the source to see the header&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/header.png" alt="header">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_结构块元素">3.3. 结构块元素</h3>
+<div class="listingblock">
+<div class="title">结构块元素</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;title&gt;Structural Block Elements&lt;/title&gt;
+ &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+ &lt;link rel="stylesheet" href="site.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="page.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="print.css"  media="print"  type="text/css" /&gt;
+ &lt;!--[if lte IE 6]&gt;
+ &lt;link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" /&gt;
+ &lt;![endif]--&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+ &lt;h1&gt;Structural Block Elements&lt;/h1&gt;
+&lt;!-- 有序列表 --&gt;
+  &lt;ol&gt;
+    &lt;li&gt;                            &lt;/li&gt;
+    &lt;li&gt;  One or more list items... &lt;/li&gt;
+  &lt;/ol&gt;
+
+&lt;!-- 无序列表 --&gt;
+  &lt;ul&gt;
+    &lt;li&gt;                            &lt;/li&gt;
+    &lt;li&gt;  One or more list items... &lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;!-- 定义列表 --&gt;
+  &lt;dl&gt;
+    &lt;dt&gt;                                  &lt;/dt&gt;
+    &lt;dt&gt;  One or more definition terms... &lt;/dt&gt;
+    &lt;dd&gt;                                  &lt;/dd&gt;
+    &lt;dd&gt;  One or more definitions...      &lt;/dd&gt;
+  &lt;/dl&gt;
+
+&lt;!-- 表格 --&gt;
+  &lt;table&gt;
+   &lt;caption&gt; One optional caption per table. &lt;/caption&gt;
+   &lt;colgroup&gt; &lt;col /&gt; &lt;col /&gt; &lt;/colgroup&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt; One or more header cells in a row...  &lt;/th&gt;
+        &lt;td&gt; One or more data cells  in a row...   &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+      &lt;tr&gt;
+        &lt;th&gt; One or more rows in a row group...    &lt;/th&gt;
+        &lt;td&gt;                                       &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;th&gt; Zero or more row groups in a table... &lt;/th&gt;
+        &lt;td&gt;                                       &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+&lt;!-- 节 --&gt;
+  &lt;div&gt; &lt;div&gt; &lt;div&gt; ... &lt;/div&gt; &lt;/div&gt; &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/s_block.png" alt="s block">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_终止块元素">3.4. 终止块元素</h3>
+<div class="paragraph">
+<p>终止块元素，指不能包含其他块元素的块元素。</p>
+</div>
+<div class="listingblock">
+<div class="title">终止块元素</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;title&gt;Terminal Block Elements&lt;/title&gt;
+ &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+ &lt;link rel="stylesheet" href="site.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="page.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="print.css"  media="print"  type="text/css" /&gt;
+ &lt;!--[if lte IE 6]&gt;
+ &lt;link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" /&gt;
+ &lt;![endif]--&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;Terminal Block Elements&lt;/h1&gt;
+
+&lt;p&gt;
+  Headings, paragraphs, blockquotes, definition terms, addresses,
+  和 table captions 均为终止块元素. 它们只包含内容。如果将块元素放置在终止块元素中，HTML验证程序将声明文档无效。
+&lt;/p&gt;
+
+&lt;blockquote&gt; blockquote 是一个终止块&lt;/blockquote&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;注意:&lt;/dt&gt;
+  &lt;dd&gt;终止块的内容均在行内&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;address&gt; address 是一个终止块&lt;/address&gt;
+
+&lt;table&gt;
+ &lt;caption&gt;Table caption 是一个终止块.&lt;/caption&gt;
+ &lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/t_block.png" alt="t block">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_多功能块元素">3.5. 多功能块元素</h3>
+<div class="listingblock">
+<div class="title">多功能块元素</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;title&gt;Multi-purpose Block Elements&lt;/title&gt;
+ &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+ &lt;link rel="stylesheet" href="site.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="page.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="print.css"  media="print"  type="text/css" /&gt;
+ &lt;!--[if lte IE 6]&gt;
+ &lt;link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" /&gt;
+ &lt;![endif]--&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;noscript&gt;若script不能运行则展示该部分&lt;/noscript&gt;
+
+&lt;div&gt;
+ &lt;div&gt;
+  &lt;h1&gt;多功能块元素&lt;/h1&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 下面的代码是无效的HTML，其结构不正确 --&gt;
+&lt;ol&gt;
+  This content is inside a list but is not inside a list item like it should be.
+  &lt;li&gt; This content is properly nested in a list item. &lt;/li&gt;
+  This content outside a list item invalidates and destroys the structure of a list.
+&lt;/ol&gt;
+
+&lt;!-- 下面的代码是有效的HTML，因为HTML的DTD中存在漏洞，但是其结构仍然不正确 --&gt;
+&lt;div&gt;
+  Compare the mixed content in this division with that of the preceding list.
+  &lt;div&gt; This content is inside a nested structural division. &lt;/div&gt;
+  This &lt;em&gt;mixed content&lt;/em&gt; is not invalid, but it destroys the block structure
+  and requires a browser to create &lt;em&gt;anonymous blocks&lt;/em&gt; in which to render it.
+&lt;/div&gt;
+
+&lt;!-- 下面的表单包含块，块中加入了控件 --&gt;
+&lt;form id="form1" method="post" action="http://www.tipjar.com/cgi-bin/test" &gt;
+ &lt;ul&gt;
+  &lt;li&gt; &lt;input type="checkbox" id="xbox1" name="xbox1" value="xbox1" /&gt;
+       &lt;label for="xbox1"&gt;Checkbox1&lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt; &lt;input type="submit" id="submit1" name="submit1" value="Submit" /&gt; &lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/form&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/m_block.png" alt="m block">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_行内元素">3.6. 行内元素</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/in_html.png" alt="in html">
+</div>
+</div>
+<div class="listingblock">
+<div class="title">行内元素</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;title&gt;Inline Elements&lt;/title&gt;
+ &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+ &lt;link rel="stylesheet" href="site.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="page.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="print.css"  media="print"  type="text/css" /&gt;
+ &lt;!--[if lte IE 6]&gt;
+ &lt;link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" /&gt;
+ &lt;![endif]--&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+ &lt;h1&gt;Inline Elements&lt;/h1&gt;
+ &lt;h2&gt;Italicized&lt;/h2&gt;
+ &lt;code&gt;&amp;lt;em&amp;gt;      &lt;/code&gt;  &lt;em&gt;emphasized&lt;/em&gt;                   &lt;br /&gt;
+ &lt;code&gt;&amp;lt;cite&amp;gt;    &lt;/code&gt;  &lt;cite&gt;citation 引文&lt;/cite&gt;                 &lt;br /&gt;
+ &lt;code&gt;&amp;lt;var&amp;gt;     &lt;/code&gt;  &lt;var&gt;computer variable&lt;/var&gt;          &lt;br /&gt;
+ &lt;code&gt;&amp;lt;dfn&amp;gt;     &lt;/code&gt;  &lt;dfn&gt;definition&lt;/dfn&gt;                 &lt;br /&gt;
+
+ &lt;h2&gt;Bold&lt;/h2&gt;
+ &lt;code&gt;&amp;lt;strong&amp;gt;  &lt;/code&gt;  &lt;strong&gt;strongly emphasized&lt;/strong&gt;  &lt;br /&gt;
+
+ &lt;h2&gt;Monospace 等宽字体&lt;/h2&gt;
+ &lt;code&gt;&amp;lt;code&amp;gt;    &lt;/code&gt;  &lt;code&gt;computer code 计算机代码&lt;/code&gt;            &lt;br /&gt;
+ &lt;code&gt;&amp;lt;kbd&amp;gt;     &lt;/code&gt;  &lt;kbd&gt;key press 按键 &lt;/kbd&gt;                  &lt;br /&gt;
+ &lt;code&gt;&amp;lt;samp&amp;gt;    &lt;/code&gt;  &lt;samp&gt;sample computer output 计算机输出样本&lt;/samp&gt;   &lt;br /&gt;
+
+ &lt;h2&gt;Underlined&lt;/h2&gt;
+ &lt;code&gt;&amp;lt;a&amp;gt;       &lt;/code&gt;  &lt;a href="#"&gt;a&lt;/a&gt;                     &lt;br /&gt;
+ &lt;code&gt;&amp;lt;acronym&amp;gt; &lt;/code&gt;  &lt;acronym title="a" &gt;acronym 首字母缩写&lt;/acronym&gt; &lt;br /&gt;
+ &lt;code&gt;&amp;lt;abbr&amp;gt;    &lt;/code&gt;  &lt;abbr title="a" &gt;abbreviation 缩写、简写&lt;/abbr&gt;  &lt;br /&gt;
+
+ &lt;h2&gt;Vertical-aligned&lt;/h2&gt;
+ &lt;code&gt;&amp;lt;sup&amp;gt;     &lt;/code&gt;  superscript 上标&lt;sup&gt;1&lt;/sup&gt;               &lt;br /&gt;
+ &lt;code&gt;&amp;lt;sub&amp;gt;     &lt;/code&gt;  subscript 下标&lt;sub&gt;1&lt;/sub&gt;                 &lt;br /&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/inline.png" alt="inline">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_类和id属性">3.7. 类和ID属性</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/c_id.png" alt="c id">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_html空白字符">3.8. HTML空白字符</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/ws_html.png" alt="ws html">
+</div>
+</div>
+<div class="listingblock">
+<div class="title">HTML空白字符</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;title&gt;HTML Whitespace&lt;/title&gt;
+ &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+ &lt;link rel="stylesheet" href="site.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="page.css"   media="all"    type="text/css" /&gt;
+ &lt;link rel="stylesheet" href="print.css"  media="print"  type="text/css" /&gt;
+ &lt;!--[if lte IE 6]&gt;
+ &lt;link rel="stylesheet" href="ie6.css"    media="all"    type="text/css" /&gt;
+ &lt;![endif]--&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;h1&gt;HTML Whitespace&lt;/h1&gt;
+&lt;p&gt;     start    middle  &amp;#x0020; &amp;#x0009;  &lt;span&gt; &lt;/span&gt;    &lt;span&gt;&lt;/span&gt;
+                                      &amp;#x000A; &amp;#x000D;  	  end      &lt;/p&gt;
+
+&lt;h2&gt;Controlling Where Whitespace Collapses&lt;/h2&gt;
+&lt;p&gt;start&lt;span class="border"&gt;  middle &lt;/span&gt; end&lt;em&gt;—inside element&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;start &lt;span class="border"&gt; middle&lt;/span&gt;  end&lt;em&gt;—outside element&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2&gt;Embedding Whitespace Inside Tags 在标签内嵌入空格 &lt;/h2&gt;
+ &lt;p&gt;start&lt;span
+          class
+           =
+            "spaced"
+             &gt;middle&lt;/span
+              &gt;end&lt;/p&gt;
+
+&lt;h2&gt;Embedding Space Entities 嵌入空间实体&lt;/h2&gt;
+&lt;code&gt;&amp;amp;zwnj;   &lt;/code&gt;&lt;span class="border"&gt;&amp;zwnj;&lt;/span&gt;    &amp;nbsp;
+&lt;code&gt;&amp;amp;thinsp; &lt;/code&gt;&lt;span class="border"&gt;&amp;thinsp;&lt;/span&gt;  &amp;nbsp;
+&lt;code&gt;&amp;amp;nbsp;   &lt;/code&gt;&lt;span class="border"&gt;&amp;nbsp;&lt;/span&gt;    &amp;nbsp;
+&lt;code&gt;&amp;amp;ensp;   &lt;/code&gt;&lt;span class="border"&gt;&amp;ensp;&lt;/span&gt;    &amp;nbsp;
+&lt;code&gt;&amp;amp;emsp;   &lt;/code&gt;&lt;span class="border"&gt;&amp;emsp;&lt;/span&gt;    &amp;nbsp;
+
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/ws.png" alt="ws">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_css选择器与继承">4. CSS选择器与继承</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_类型选择器">4.1. 类型选择器</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/t_s.png" alt="t s">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_位置选择器">4.2. 位置选择器</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/d_s.png" alt="d s">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_属性选择器">4.3. 属性选择器</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/a_s.png" alt="a s">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_伪元素选择器">4.4. 伪元素选择器</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/p_s.png" alt="p s">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_伪类选择器">4.5. 伪类选择器</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/pc_s.png" alt="pc s">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_子类选择器">4.6. 子类选择器</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/sc_s.png" alt="sc s">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_继承">4.7. 继承</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/i.png" alt="i">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_可视化继承">4.8. 可视化继承</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/method/i_v.png" alt="i v">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-02-25 18:05:52 +0800
+</div>
+</div>
+</div>
+					</div>
+
+				</div>
+
+			</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul>
+						<li>&copy; Powered by <a href="https://html5up.net">HTML5 UP</a> </li>
+						<li>Design: Yakecan Tony</li>
+					</ul>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+			<script src="../../assets/js/a-main.js"></script>
+			<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+			<script src="../../assets/js/jquery.fancybox.min.js"></script>
+
+
+	</body>
+</html>

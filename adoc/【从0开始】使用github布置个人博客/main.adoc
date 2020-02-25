@@ -1,10 +1,13 @@
+// main
 :toc: left
 :toc-label: 目录
 :toclevels: 4
 :doctype: book
-:imagesdir: ./images
 :pygments-style: autumn
+
+// each
 :sectnums:
+:imagesdir: ./images
 :sectnumlevels: 4
 :chapter-label: 
 :example-caption: 例
@@ -13,11 +16,13 @@
 :table-caption: 表
 :appendix-caption: 附录
 :icons: font
-:version-label: 版本号
+:revdate: 2020-02-21
+
 
 = 【从0开始】使用github布置个人博客
+江小折
 
-本文主要展示如何从0开始布置个人博客，通过阅读本文，读者能够完成个人博客的初步配置，掌握使用git更新博客的方法。博客内容的具体书写、前端开发的一些小技巧等，将与博客同步更新于 link:../【实时更新】博客编写经验总结/main.adoc[【实时更新】博客编写经验总结]
+本文主要展示如何从0开始布置个人博客，通过阅读本文，读者能够完成个人博客的初步配置，掌握使用git更新博客的方法。博客内容的具体书写、前端开发的一些小技巧等，将与博客同步更新于 link:../【实时更新】博客编写经验总结/adoc.html[【实时更新】博客编写经验总结]
 
 == 前言
 . 除必须配置外，所有配置全为软件默认，帮助用户简化各个组件的部署步骤
@@ -112,7 +117,7 @@ image::p_result.png[align=center, scaledwidth=100%]
 ====
 * 推荐本文所用的博客模板网站 link:https://html5up.net/[HTML5] ，从该网站可以下载完整的博客模板
 * 本文提供了已下载的部分模板供fanqiang不便的用户使用，见<<related>>
-* 本部分仅展示快速搭建博客过程，博客书写见 link:../【实时更新】博客编写经验总结/main.adoc[【实时更新】博客编写经验总结]
+* 本部分仅展示快速搭建博客过程，博客书写见 link:../【实时更新】博客编写经验总结/adoc.html[【实时更新】博客编写经验总结]
 ====
 
 . 使用文本编辑器打开博客文件夹(File-Openfolder-文件夹目录)，打开index.html查看内容（本文使用<<brackets>>，可以同时编辑html和<<adoc>>）
