@@ -7,7 +7,7 @@
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="author" content="江小折">
 <title>【实时更新】博客编写经验总结</title>
-<link rel="stylesheet" href="../../assets/css/a-main.css">
+<link rel="stylesheet" href="D:/github/YakecanT.github.io/assets/css/a-main.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="book toc2 toc-left">
@@ -27,13 +27,15 @@
 </li>
 <li><a href="#_个人博客road_list">2. 个人博客road_list</a>
 <ul class="sectlevel2">
-<li><a href="#_思维导图">2.1. 思维导图</a></li>
-<li><a href="#_to_do_list">2.2. to do list</a></li>
+<li><a href="#_产品定位">2.1. 产品定位</a></li>
+<li><a href="#_思维导图">2.2. 思维导图</a></li>
+<li><a href="#_产品原型图">2.3. 产品原型图</a></li>
+<li><a href="#_项目甘特图">2.4. 项目甘特图</a></li>
 </ul>
 </li>
-<li><a href="#_icon技巧fontawesome和fontdiao">3. icon技巧：fontawesome和fontdiao</a></li>
-<li><a href="#_图片预览技巧fancybox">4. 图片预览技巧：fancybox</a></li>
-<li><a href="#_页面编辑技巧使用asciidoctor模板完成博客页面书写">5. 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</a>
+<li><a href="#icon">3. icon技巧：fontawesome和fontdiao</a></li>
+<li><a href="#fancybox">4. 图片预览技巧：fancybox</a></li>
+<li><a href="#asciidoctor">5. 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</a>
 <ul class="sectlevel2">
 <li><a href="#_asciidoctor的安装">5.1. AsciiDoctor的安装</a></li>
 <li><a href="#_asciidoctor_stylesheet_factory_模板工厂">5.2. AsciiDoctor-stylesheet-factory （模板工厂）</a>
@@ -41,11 +43,12 @@
 <li><a href="#_安装">5.2.1. 安装</a></li>
 <li><a href="#_生成模板">5.2.2. 生成模板</a></li>
 <li><a href="#_使用模板渲染生成html">5.2.3. 使用模板渲染生成html</a></li>
-<li><a href="#_制作自己的模板">5.2.4. 制作自己的模板</a></li>
+<li><a href="#adoc-blog">5.2.4. 制作自己的模板</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="#_制作批量模板生成脚本">6. 制作批量模板生成脚本</a></li>
 </ul>
 </div>
 </div>
@@ -60,6 +63,9 @@
 </li>
 <li>
 <p>由于每个人的知识体系不完全相同，一定会遇到不太明白的地方，不用管，直接往下操作，操作结束了就会有自己的认识</p>
+</li>
+<li>
+<p>建议查看前便下载基于本总结的博客模板：<a href="https://pan.baidu.com/s/1vhNDtfy8vX4khVW4YgiuAA">传送门</a>，提取码：aa2a</p>
 </li>
 </ol>
 </div>
@@ -82,30 +88,308 @@
 <div class="sect1">
 <h2 id="_个人博客road_list">2. 个人博客road_list</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_思维导图">2.1. 思维导图</h3>
-
+<div class="paragraph">
+<p>目前仅有首页、故事两个页面，未来将尝试加入Issue、APP两个页面。</p>
 </div>
 <div class="sect2">
-<h3 id="_to_do_list">2.2. to do list</h3>
-<div style="page-break-after: always;"></div>
+<h3 id="_产品定位">2.1. 产品定位</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>开源的、即开即用、高度定制化的个人信息管理器</p>
+</li>
+<li>
+<p>在github的Page上分享，全开源，并提供全部的部署教程，和自行DIY教程</p>
+</li>
+<li>
+<p>分享个人技术、产品等想法经历</p>
+</li>
+<li>
+<p>自行开发一些实用小程序，支持用户git clone到本地使用</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_思维导图">2.2. 思维导图</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/mindmap1.png" alt="mindmap1">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>首页即博客列表页面，每页放置4-8篇博客导航，博客均为较长文档，可以通过博客页面中的目录进行页内导航。</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/mindmap2.png" alt="mindmap2">
+</div>
+</div>
+</li>
+<li>
+<p>Issue页面，集合学习过程中，遇到并处理了的小型问题，不需要太长篇幅，以“知乎”型瀑布流的方式，将所有小型问题集合在同一页面内，支持对Issue的展开和收起；导航栏根据Issue的题目进行导航，与业内加载的Issue同步显示。</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/mindmap3.png" alt="mindmap3">
+</div>
+</div>
+</li>
+<li>
+<p>APP页面，最开始是一些自己写的小脚本，比如批量渲染adoc文档并入博客模板的Python脚本，之后会做一些基于HTML的本地工具，比如集合了印象笔记任务清单+日历+甘特图功能的小型提示工具。</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/mindmap4.png" alt="mindmap4">
+</div>
+</div>
+</li>
+<li>
+<p>故事页面，以图片的形式，讲述一些自己的故事，由于GitHub Page在国内不易打开，以外文形式展示，希望将来可以与外国友人交流。</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/mindmap5.png" alt="mindmap5">
+</div>
+</div>
+</li>
+<li>
+<p>公共模块，即顶部导航栏和底部导航栏，提供多个页面的切换，以及针对当前页面内容的搜索功能。</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/mindmap6.png" alt="mindmap6">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_产品原型图">2.3. 产品原型图</h3>
+<div class="paragraph">
+<p>已用Axure 9生成原型图，<a href="../../design/firstpage.html">点击查看</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>首页，可跳转<a href="../../index.html">目前的首页</a>查看差异</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/prototype1.png" alt="prototype1">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>点击首页上左上角第一个项目框的【标题】、【图片】或【概要】部分进入博客示例页面，本页即为成果，可以通过左上角的目录进行页内导航，且支持多种设备，包括IOS、Windows、Mac、Android。</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/prototype2.png" alt="prototype2">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>问题</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/prototype3.png" alt="prototype3">
+</div>
+</div>
+</li>
+<li>
+<p>小程序</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/prototype4.png" alt="prototype4">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>点击小程序页面左上角的第一个项目框的【标题】、【图片】或【概要】部分进入小程序细节示例页面</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/prototype5.png" alt="prototype5">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>故事，故事页面目前已完成，可跳转<a href="../../story.html">目前的故事页面</a>，这里仅做一个测试</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/prototype6.png" alt="prototype6">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_项目甘特图">2.4. 项目甘特图</h3>
+<div class="paragraph">
+<p>搭个博客，相对来讲工作还不会太难，10天左右，一边学习一边写博客就能做到，简单介绍一下学习栈：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>HTML和CSS：参考书《HTML5和CSS3设计模式》，项目实战“本博客模板与adoc渲染出的模板的整合”，详见<a href="#adoc-blog">制作自己的模板</a></p>
+</li>
+<li>
+<p>JQuery：参考书《锋利的JQuery》，项目实战为“学习HTML5模板，实现博客页面的目录动效”，详见<a href="#jquery">[jquery]</a></p>
+</li>
+<li>
+<p>asciidoctor：参考网页<a href="https://asciidoctor.org/docs/user-manual/">AsciiDoctor用户手册</a>，项目实战为“编写每一章的博客并使用Ruby的相应gem包渲染”，中间还了解了一些Ruby知识，详见<a href="#asciidoctor">页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</a></p>
+</li>
+<li>
+<p>其他前端小技巧：可见<a href="#icon">icon技巧：fontawesome和fontdiao</a>和<a href="#fancybox">图片预览技巧：fancybox</a></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>但如果，同时还要完成一些博客内容，比如日常的：学习Java、学习K8S等等；线上上课，需要花双倍的时间在学校课程上；最近的校招启动又得好好准备简历，这样下来任务就多得难以应付了。</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>产生的需求就是：时间+合理的安排</strong></p>
+</div>
+<div class="paragraph">
+<p>于是头铁各种试，找到了一个还算不错的时间规划方法：甘特图</p>
+</div>
+<div class="paragraph">
+<p>这是写到这里时本博客项目的甘特图。</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/blog/gante.png" alt="gante">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>甘特图是一个奇妙的东西，我从印象笔记中找到了这个神奇的模板，之后就停不下来了，将所有的任务分开记录、分开提醒、分开放在甘特图中。这样，每天做了什么，任务点完成了哪里，就一目了然，回顾一下发现这几天分外充实。</p>
+</div>
+<div class="paragraph">
+<p>如果有需要的话，推荐用它来管理下自己多线程工作的进度。</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_icon技巧fontawesome和fontdiao">3. icon技巧：fontawesome和fontdiao</h2>
+<h2 id="icon">3. icon技巧：fontawesome和fontdiao</h2>
 <div class="sectionbody">
-<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>在自己编写博客以前，从来以为图标是需要了就去网上下的……</p>
+</div>
+<div class="paragraph">
+<p>当然确实可以如此，但很多常见图标，实际上已经有公共的网站提供了。</p>
+</div>
+<div class="paragraph">
+<p>其中，大名鼎鼎的fontawesome提供了非常多的常用图标，基本涵盖了大部分的国外企业图标；如果要找国内的，网友们推荐阿里相关的图标库，我找到的是fontdiao，一个暂时不会更新但也足够用的图标库，本博客的豆瓣图标便源于此。</p>
+</div>
+<div class="paragraph">
+<p>那么这些该怎么用呢？</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>从源网站下载图标css库，传送门：<a href="https://fontawesome.com/">fontawesome</a>和<a href="https://github.com/lexrus/fontdiao">fontdiao</a>。实际上，在本博客的模板中就有，assets/css文件夹下。<a href="https://pan.baidu.com/s/1vhNDtfy8vX4khVW4YgiuAA">下载博客模板</a>，提取码：aa2a</p>
+</li>
+<li>
+<p>找到博客的css文件，比如这里用的是引用最多的main.css，在最顶端导入</p>
+<div class="listingblock">
+<div class="title">main.css</div>
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">@import url(fontawesome-all.min.css);
+@import url(fontdiao.css);</code></pre>
+</div>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/font_import.png" alt="font import">
+</div>
+</div>
+</li>
+<li>
+<p>在css中以font-family的形式标注类别。</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/font_use.png" alt="font use">
+</div>
+</div>
+</li>
+<li>
+<p>对照两个官网的图标-文字对照表，在html需要用到的地方使用即可</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/font_use2.png" alt="font use2">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_图片预览技巧fancybox">4. 图片预览技巧：fancybox</h2>
+<h2 id="fancybox">4. 图片预览技巧：fancybox</h2>
 <div class="sectionbody">
-<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>如果想要图片可以放大缩小、打开关闭、甚至还能放幻灯片，而又没精力深度研究JS，建议使用fancybox来赋能图片页面。</p>
+</div>
+<div class="paragraph">
+<p>本博客的使用例子便是<a href="../../story.html">故事页面</a></p>
+</div>
+<div class="paragraph">
+<p>随便点开一张图，就可以体会到fancybox的快捷。</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>用法也很简单：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>从<a href="http://fancyapps.com/fancybox/3/">官网</a>下载。实际上，在本博客的模板中就有，assets/js中的jquery.fancybox.min.css。<a href="https://pan.baidu.com/s/1vhNDtfy8vX4khVW4YgiuAA">下载博客模板</a>，提取码：aa2a</p>
+</li>
+<li>
+<p>在用到的网页中导入script</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;script src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="PATH/jquery.fancybox.min.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>需要用到fancybox的图片这样写：</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-html" data-lang="html">&lt;a data-fancybox="gallery" data-caption="这里可以写图片预览时的备注" href="image.JPG"&gt;
+&lt;img src="image.JPG" alt="" /&gt;
+&lt;/a&gt;</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>打开玩玩，大功告成！</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_页面编辑技巧使用asciidoctor模板完成博客页面书写">5. 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</h2>
+<h2 id="asciidoctor">5. 页面编辑技巧：使用AsciiDoctor+模板完成博客页面书写</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_asciidoctor的安装">5.1. AsciiDoctor的安装</h3>
@@ -272,7 +556,7 @@ puts "Hello, World!"</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_制作自己的模板">5.2.4. 制作自己的模板</h4>
+<h4 id="adoc-blog">5.2.4. 制作自己的模板</h4>
 <div class="paragraph">
 <p>如上所示，我们可以使用asciidoctor支持的css模板渲染adoc，生成html。但是生成的html属于纯阅读型文档，并不能附带博客模板的各种奇幻效果。因此，接下来将展示，如何自己debug将asciidoctor模板css与massively HTML5模板css合并，实现每页博客的酷炫效果。</p>
 </div>
@@ -297,16 +581,36 @@ puts "Hello, World!"</pre>
 </table>
 </div>
 <div class="paragraph">
-<p>todo</p>
+<p>这一页有空补充。</p>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_制作批量模板生成脚本">6. 制作批量模板生成脚本</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在完成了上述模板调试后，我写了一个Python脚本，能够直接将所有adoc文件夹下的adoc文件转化为自己想要的html文档，这样就不用每写一篇adoc文档，用控制台调用半天asciidoctor，再复制粘贴进模板html了。</p>
+</div>
+<div class="paragraph">
+<p>脚本地址为script/auto_html.py，使用时需要安装好Python、Ruby的asciidoctor gem，并配置好环境变量。<a href="https://pan.baidu.com/s/1vhNDtfy8vX4khVW4YgiuAA">下载博客模板</a>，提取码：aa2a</p>
+</div>
+<div class="paragraph">
+<p>下载好本博客的框架，在adoc下面书写自己的内容，注意，为统一起见将所有的主文档命名为main.adoc，之后在script文件夹上使用shift+鼠标右键，在此处打开shell，输入<code>python auto_html.py</code>，等待运行结束便可以得到从adoc渲染好的html文档，统一命名为adoc.html。</p>
+</div>
+<div class="paragraph">
+<p>在index.html上改写自己的标题并输入链接即可完成一次新博客的更新。</p>
+</div>
+<div class="paragraph">
+<p>之后将发布更完全的版本，一行代码同时完成博客页面的渲染和主页项目栏更新。</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-02-25 18:07:36 +0800
+Last updated 2020-03-06 00:11:21 +0800
 </div>
 </div>
 </body>

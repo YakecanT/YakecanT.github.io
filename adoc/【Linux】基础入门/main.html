@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="江小折">
+<title>【Linux】基础入门</title>
+<link rel="stylesheet" href="D:/github/YakecanT.github.io/assets/css/a-main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>【Linux】基础入门</h1>
+<div class="details">
+<span id="author" class="author">江小折</span><br>
+<span id="revdate">2020-03-02</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<ul class="sectlevel1">
+<li><a href="#_环境准备">1. 环境准备</a></li>
+<li><a href="#_上手时的问题与解决方案">2. 上手时的问题与解决方案</a>
+<ul class="sectlevel2">
+<li><a href="#_centos7黑屏">2.1. CentOS7黑屏</a></li>
+<li><a href="#_centos7与系统时间错位">2.2. CentOS7与系统时间错位</a></li>
+<li><a href="#_centos7无法连接上网络">2.3. CentOS7无法连接上网络</a></li>
+</ul>
+</li>
+<li><a href="#_linux基本概念与操作">3. Linux基本概念与操作</a>
+<ul class="sectlevel2">
+<li><a href="#_linux系统目录">3.1. Linux系统目录</a></li>
+<li><a href="#_linux控制台">3.2. Linux控制台</a></li>
+</ul>
+</li>
+<li><a href="#related">4. 附录：相关文件</a></li>
+<li><a href="#_参考">5. 参考</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_环境准备">1. 环境准备</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>安装VMware，见<a href="#related">附录：相关文件</a>中的VMWare，用附带的密匙破解即可、</p>
+</li>
+<li>
+<p>在VMware上安装CentOS7，见<a href="#related">附录：相关文件</a>中的CentOS7，安装过程可参照<a href="https://blog.csdn.net/yang5726685/article/details/78635388">在VMware虚拟机中安装CentOS</a>。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_上手时的问题与解决方案">2. 上手时的问题与解决方案</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_centos7黑屏">2.1. CentOS7黑屏</h3>
+<div class="paragraph">
+<p>在Windows系统中，打开cmd，运行`netsh winsock reset`初始化网络环境，解决参数问题。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_centos7与系统时间错位">2.2. CentOS7与系统时间错位</h3>
+<div class="paragraph">
+<p>通过以下几个操作完成CentOS7系统的时间校准</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>su //进入管理员模式
+timedatectl //查看系统时间
+ls /usr/share/zoneinfo/  //查看系统时区
+sudo rm /etc/localtime  //删除当前系统所处的分区
+sudo ln -s /usr/share/zoneinfo/Universal /etc/localtime  //从/usr/share/zoninfo/中创建软连接以替换当前的时区信息，直接选择Universal
+sudo timedatectl  //再次查看系统时间</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_centos7无法连接上网络">2.3. CentOS7无法连接上网络</h3>
+<div class="paragraph">
+<p>问题1：无法使用自带的Firefox浏览器上百度</p>
+</div>
+<div class="paragraph">
+<p>问题2：使用yum安装时显示连接时间过长</p>
+</div>
+<div class="paragraph">
+<p>解决方案：</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_linux基本概念与操作">3. Linux基本概念与操作</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_linux系统目录">3.1. Linux系统目录</h3>
+<div class="paragraph">
+<p>在 Linux 系统中，有几个目录是比较重要的，平时需要注意不要误删除或者随意更改内部文件。</p>
+</div>
+<div class="paragraph">
+<p>/etc： 系统中的配置文件</p>
+</div>
+<div class="paragraph">
+<p>/bin, /sbin, /usr/bin, /usr/sbin: 系统预设的执行文件的放置目录，比如 ls 就是在/bin/ls 目录下的。</p>
+</div>
+<div class="paragraph">
+<p>值得提出的是，/bin, /usr/bin 是给系统用户使用的指令（除root外的通用户），而/sbin, /usr/sbin 则是给root使用的指令。</p>
+</div>
+<div class="paragraph">
+<p>/var： 这是一个非常重要的目录，系统上跑了很多程序，那么每个程序都会有相应的日志产生，而这些日志就被记录到这个目录下，具体在/var/log 目录下，另外mail的预设放置也是在这里。</p>
+</div>
+<div class="paragraph">
+<p>详情参考<a href="https://www.runoob.com/linux/linux-system-contents.html">Linux系统目录结构</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_linux控制台">3.2. Linux控制台</h3>
+<div class="paragraph">
+<p>CentOS7的控制台（通过 应用程序-系统工具-终端 打开）基本操作：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>su //进入管理员模式，之后输入自定义的密码
+ls //显示文件和目录列表
+cd //切换目录
+mkdir //创建目录
+rmdire //删除空目录
+rm //删除文件或目录</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="related">4. 附录：相关文件</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://pan.baidu.com/s/1w89Q9QgnDMMScNVm20wkQg">VMware</a>：dr5v</p>
+</li>
+<li>
+<p><a href="https://pan.baidu.com/s/1okFwdKDGwLuIrsdMft4TAg">CentOS7</a>：icld</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_参考">5. 参考</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://blog.csdn.net/yang5726685/article/details/78635388">在VMware虚拟机中安装CentOS</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://blog.csdn.net/sqlquan/article/details/90291312">vmare14 安装centos7 黑屏解决</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://blog.csdn.net/lin521lh/article/details/78456654">CentOS 7系统时间与实际时间差8个小时</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.runoob.com/linux/linux-system-contents.html">Linux系统目录结构</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-03-02 17:17:18 +0800
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+// main
+:toc: left
+:toc-label: 目录
+:toclevels: 4
+:doctype: book
+:pygments-style: autumn
+
+// each
+:sectnums:
+:imagesdir: ./images
+:sectnumlevels: 4
+:chapter-label: 
+:example-caption: 例
+:figure-caption: 图
+:toc-title: 目录
+:table-caption: 表
+:appendix-caption: 附录
+:icons: font
+:revdate: 2020-03-02
+
+= 【Linux】基础入门
+江小折
+
+== 环境准备
+
+. 安装VMware，见<<related>>中的VMWare，用附带的密匙破解即可、
+. 在VMware上安装CentOS7，见<<related>>中的CentOS7，安装过程可参照link:https://blog.csdn.net/yang5726685/article/details/78635388[在VMware虚拟机中安装CentOS]。
+
+== 上手时的问题与解决方案
+
+=== CentOS7黑屏
+
+在Windows系统中，打开cmd，运行`netsh winsock reset`初始化网络环境，解决参数问题。
+
+=== CentOS7与系统时间错位
+
+通过以下几个操作完成CentOS7系统的时间校准
+
+----
+su //进入管理员模式
+timedatectl //查看系统时间
+ls /usr/share/zoneinfo/  //查看系统时区
+sudo rm /etc/localtime  //删除当前系统所处的分区
+sudo ln -s /usr/share/zoneinfo/Universal /etc/localtime  //从/usr/share/zoninfo/中创建软连接以替换当前的时区信息，直接选择Universal
+sudo timedatectl  //再次查看系统时间
+----
+
+=== CentOS7无法连接上网络
+
+问题1：无法使用自带的Firefox浏览器上百度
+
+问题2：使用yum安装时显示连接时间过长
+
+解决方案：
+
+
+== Linux基本概念与操作
+
+=== Linux系统目录
+在 Linux 系统中，有几个目录是比较重要的，平时需要注意不要误删除或者随意更改内部文件。
+
+/etc： 系统中的配置文件
+
+/bin, /sbin, /usr/bin, /usr/sbin: 系统预设的执行文件的放置目录，比如 ls 就是在/bin/ls 目录下的。
+
+值得提出的是，/bin, /usr/bin 是给系统用户使用的指令（除root外的通用户），而/sbin, /usr/sbin 则是给root使用的指令。
+
+/var： 这是一个非常重要的目录，系统上跑了很多程序，那么每个程序都会有相应的日志产生，而这些日志就被记录到这个目录下，具体在/var/log 目录下，另外mail的预设放置也是在这里。
+
+详情参考link:https://www.runoob.com/linux/linux-system-contents.html[Linux系统目录结构]
+
+=== Linux控制台
+
+CentOS7的控制台（通过 应用程序-系统工具-终端 打开）基本操作：
+----
+su //进入管理员模式，之后输入自定义的密码
+ls //显示文件和目录列表
+cd //切换目录
+mkdir //创建目录
+rmdire //删除空目录
+rm //删除文件或目录
+----
+
+
+[[related]]
+== 附录：相关文件
+. link:https://pan.baidu.com/s/1w89Q9QgnDMMScNVm20wkQg[VMware]：dr5v
+. link:https://pan.baidu.com/s/1okFwdKDGwLuIrsdMft4TAg[CentOS7]：icld 
+
+
+== 参考
+link:https://blog.csdn.net/yang5726685/article/details/78635388[在VMware虚拟机中安装CentOS]
+
+link:https://blog.csdn.net/sqlquan/article/details/90291312[vmare14 安装centos7 黑屏解决]
+
+link:https://blog.csdn.net/lin521lh/article/details/78456654[CentOS 7系统时间与实际时间差8个小时]
+
+link:https://www.runoob.com/linux/linux-system-contents.html[Linux系统目录结构]
+
+

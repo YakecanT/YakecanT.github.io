@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Yakecan's Blog</title>
+		<link rel="icon" href="../../images/index/leaf.ico" type="image/x-icon">  <!-- 在网页标题左侧显示图标 -->
+		<link rel="shortcut icon" href="../../images/index/leaf.ico" type="image/x-icon">  <!-- 在收藏夹显示图标-->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">  <!--  IE=edge，IE使用最新的引擎渲染网页  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="generator" content="Asciidoctor 2.0.10">
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+		<link rel="stylesheet" href="../../assets/css/a-main.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/jquery.fancybox.min.css">
+		<noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="top">
+					<a href="../../index.html" class="logo">Yakecan's Blog</a>
+				</header>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="../../index.html">首页 firstpage</a></li>
+						<li><a href="../../story.html">故事 story</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/YakecanT" class="icon brands style2 fa-github" target="_blank"></a></li>
+						<li><a href="https://www.douban.com/people/209132162/" class="icon diao style2 icon-douban" target="_blank"></a></li>
+						<li><a href="https://www.linkedin.com/in/%E5%A4%A9%E9%98%B3-%E9%99%88-300201150/" class="icon brands style2 fa-linkedin" target="_blank"></a></li>
+						<li><a href="mailto:itarinchen@gmail.com" class="icon style2 fa-envelope"></a></li>
+					</ul>
+				</nav>
+
+				<!-- Catalog 目录 -->
+					<a href="#tocPanel" id="catPanelToggle">
+						目录
+					</a>
+
+
+				<!-- Main -->
+					<div id="main">
+<div class="book toc2 toc-left">
+<div id="header">
+<h1>【Kubernetes】基础摘记</h1>
+<div class="details">
+<span id="author" class="author">江小折</span><br>
+<span id="revdate">2020-03-02</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目录</div>
+<ul class="sectlevel1">
+<li><a href="#_kubernetes_是什么">1. Kubernetes 是什么</a></li>
+<li><a href="#_kubernetes_基础概念">2. Kubernetes 基础概念</a></li>
+<li><a href="#_kubernetes_实战为服务扩容服务升级提供全新解决方案">3. Kubernetes 实战：为服务扩容、服务升级提供全新解决方案</a></li>
+<li><a href="#_kubernetes_关键性能">4. Kubernetes 关键性能</a></li>
+<li><a href="#_参考">5. 参考</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_kubernetes_是什么">1. Kubernetes 是什么</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Kubernetes是一个基于容器技术分布式架构方案</p>
+<div class="paragraph">
+<p>解决负载均衡器的选型和部署实施问题，提供了服务治理框架、服务监控和故障处理模块，并通过自动化机制降低了系统的运维成本。</p>
+</div>
+</li>
+<li>
+<p>Kubernetes是一个开放的开发平台</p>
+<div class="paragraph">
+<p>K8s支持任何编程接口，可以通过映射为Kubernetes的Service，并通过标准的TCP通信协议进行交互；K8s对于编程语言、编程框架和中间件无侵入性，现有系统易于升级并迁移到Kubernetes平台上。</p>
+</div>
+</li>
+<li>
+<p>Kubernetes是一个完备的分布式系统支撑平台</p>
+<div class="paragraph">
+<p>具有完备的集群管理能力，包括多层次的安全防护和准入机制、多租户应用支撑能力、透明的服务注册和服务发现机制、内建智能负载均衡器、强大的故障发现和自我修复能力、服务滚动升级和在线扩容能力、可扩展的资源自动调度机制，以及多粒度的资源配额管理能力。K8s同时具有完善的管理工具，涵盖开发、部署测试、运维监控等各个环节，是一个一站式的完备的分布式系统开发和支撑平台。</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kubernetes_基础概念">2. Kubernetes 基础概念</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Service（服务）：分布式集群架构的核心</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>拥有一个唯一指定的名字</p>
+</li>
+<li>
+<p>拥有一个虚拟IP</p>
+</li>
+<li>
+<p>能够提供基于Socket通信的远程服务能力</p>
+</li>
+<li>
+<p>被映射到了提供这种服务能力的一组容器应用上</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Endpoint（IP+Port）：Service通常由多个相关的服务进程提供服务，每个服务进程都有一个独立的Endpoint访问点</p>
+</li>
+<li>
+<p>Pod：将每个服务进程包装到相应的Pod中，使其成为Pod中运行的一个容器（Container）。</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Container（容器）：一组受到资源限制，彼此间相互隔离的进程。由linux内核提供隔离技术。其中，namespace用来做访问隔离（每个容器进程都有自己独立的进程空间，看不到其他进程），cgroups用来做资源限制（cpu、内存、存储、网络的使用限制）。</p>
+</li>
+<li>
+<p>Label（标签）：为建立Service和Pod间的关联关系，每个Pod都需要贴上一个Label，并给对应的Service定义Label Selector（标签选择器）</p>
+</li>
+<li>
+<p>Pause：Pod中一种特殊容器，其他的容器为业务容器，业务容器共享Pause容器的网络栈和Volume挂载卷，因此它们之间的通信和数据交换更为高效</p>
+</li>
+<li>
+<p>注意：只有提供服务的一组Pod才会被“映射”为一个服务</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Node（节点）：Node可以是物理机或云中的虚拟机，通常在一个Node上运行几百个Pod</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Master节点：运行着集群管理的一组进程，包括kube-apiserver、kube-controller-manager和kube-scheduler，这些进程全自动实现了整个集群的资源管理、Pod调度、弹性伸缩、安全控制、系统监控和纠错等管理功能</p>
+</li>
+<li>
+<p>Node工作节点：运行真正的应用程序，其中最小运行单元就是Pod，运行着Kubernetes的kubelet、kube-proxy服务进程，这些服务进程负责Pod的创建、启动、监控、重启、销毁，以及实现软件模式的负载均衡器</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kubernetes_实战为服务扩容服务升级提供全新解决方案">3. Kubernetes 实战：为服务扩容、服务升级提供全新解决方案</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>服务扩容，涉及资源分配（选择哪个节点扩容）、实例部署和启动等环节，只需为需要扩容的Service关联的Pod创建一个Replication Controller（简称RC），即可由Kubernetes自动化完成扩容。</p>
+</div>
+<div class="paragraph">
+<p>Replication Controller（RC）定义文件：
+. 目标Pod的定义
+. 目标Pod需要运行的副本数量（Replicas）
+. 要监控的目标Pod的标签（Label）</p>
+</div>
+<div class="paragraph">
+<p>扩容过程：
+. 创建好RC
+. 系统自动创建Pod
+. 系统根据Label筛选对应的Pod实例并监控
+. 若实例数少于定义的副本数量（Replicas），则根据RC中定义的Pod模板创建一个新Pod，将此Pod调度到合适的Node上启动运行，直到Pod实例数量达到预定目标</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kubernetes_关键性能">4. Kubernetes 关键性能</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>可以轻装上阵设计、实现、运维分布式系统</p>
+</li>
+<li>
+<p>全面拥抱微服务架构</p>
+</li>
+<li>
+<p>系统可以随时整体迁移到公有云上</p>
+</li>
+<li>
+<p>系统具有超强的横向扩容能力，从而支撑互联网公司广大的用户规模</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_参考">5. 参考</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://www.jianshu.com/p/517e757d6d17">深入理解容器基础概念</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-03-02 12:47:27 +0800
+</div>
+</div</div>
+					</div>
+
+				</div>
+
+			</div>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul>
+						<li>&copy; Powered by <a href="https://html5up.net">HTML5 UP</a> </li>
+						<li>Design: Yakecan Tony</li>
+					</ul>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+			<script src="../../assets/js/a-main.js"></script>
+			<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+			<script src="../../assets/js/jquery.fancybox.min.js"></script>
+
+
+	</body>
+</html>

@@ -1,0 +1,59 @@
+// main
+:toc: left
+:toc-label: 目录
+:toclevels: 4
+:doctype: book
+:pygments-style: autumn
+
+// each
+:sectnums:
+:imagesdir: ./images
+:sectnumlevels: 4
+:chapter-label: 
+:example-caption: 例
+:figure-caption: 图
+:toc-title: 目录
+:table-caption: 表
+:appendix-caption: 附录
+:icons: font
+:revdate: 2020-03-02
+
+= 【Kubernetes】轻松上手
+江小折
+
+== 环境准备
+
+=== CentOS7虚拟机
+
+使用VMware WorkStation在本机虚拟一个64位的CentOS7作为学习环境。
+
+==== 安装VMware
+
+本文提供了VMware的安装包，见<<related>>中的VMWare。
+
+根据安装包指示安装即可，最后使用附件的密匙即可破解。
+
+==== 部署CentOS7
+
+本文提供了centOS7 64位的安装包，见<<related>>中的CentOS7。若希望下载其他版本，请移步link:https://www.centos.org/[CentOS官网]。
+
+具体安装过程，请参考link:https://blog.csdn.net/yang5726685/article/details/78635388[在VMware虚拟机中安装CentOS]。
+
+初次配置Linux可能会遇到很多问题，参见link:../【Linux】基础入门/adoc.html[【Linux】基础入门]
+
+
+=== 安装Kubernetes
+
+
+
+
+
+[[related]]
+== 附录：相关文件
+. link:https://pan.baidu.com/s/1w89Q9QgnDMMScNVm20wkQg[VMware]：dr5v
+. link:https://pan.baidu.com/s/1okFwdKDGwLuIrsdMft4TAg[CentOS7]：icld 
+
+== 参考
+link:https://www.jianshu.com/p/517e757d6d17[深入理解容器基础概念]
+
+link:https://blog.csdn.net/yang5726685/article/details/78635388[在VMware虚拟机中安装CentOS]

@@ -1,0 +1,91 @@
+// main
+:toc: left
+:toc-label: 目录
+:toclevels: 4
+:doctype: book
+:pygments-style: autumn
+
+// each
+:sectnums:
+:imagesdir: ./images
+:sectnumlevels: 4
+:chapter-label: 
+:example-caption: 例
+:figure-caption: 图
+:toc-title: 目录
+:table-caption: 表
+:appendix-caption: 附录
+:icons: font
+:revdate: 2020-03-02
+
+= 【Kubernetes】基础摘记
+江小折
+
+== Kubernetes 是什么
+
+. Kubernetes是一个基于容器技术分布式架构方案
++
+解决负载均衡器的选型和部署实施问题，提供了服务治理框架、服务监控和故障处理模块，并通过自动化机制降低了系统的运维成本。
+
+. Kubernetes是一个开放的开发平台
++
+K8s支持任何编程接口，可以通过映射为Kubernetes的Service，并通过标准的TCP通信协议进行交互；K8s对于编程语言、编程框架和中间件无侵入性，现有系统易于升级并迁移到Kubernetes平台上。
+
+. Kubernetes是一个完备的分布式系统支撑平台
++
+具有完备的集群管理能力，包括多层次的安全防护和准入机制、多租户应用支撑能力、透明的服务注册和服务发现机制、内建智能负载均衡器、强大的故障发现和自我修复能力、服务滚动升级和在线扩容能力、可扩展的资源自动调度机制，以及多粒度的资源配额管理能力。K8s同时具有完善的管理工具，涵盖开发、部署测试、运维监控等各个环节，是一个一站式的完备的分布式系统开发和支撑平台。
+
+== Kubernetes 基础概念
+* Service（服务）：分布式集群架构的核心
++
+. 拥有一个唯一指定的名字
+. 拥有一个虚拟IP
+. 能够提供基于Socket通信的远程服务能力
+. 被映射到了提供这种服务能力的一组容器应用上
+
+* Endpoint（IP+Port）：Service通常由多个相关的服务进程提供服务，每个服务进程都有一个独立的Endpoint访问点
+
+* Pod：将每个服务进程包装到相应的Pod中，使其成为Pod中运行的一个容器（Container）。
++
+. Container（容器）：一组受到资源限制，彼此间相互隔离的进程。由linux内核提供隔离技术。其中，namespace用来做访问隔离（每个容器进程都有自己独立的进程空间，看不到其他进程），cgroups用来做资源限制（cpu、内存、存储、网络的使用限制）。
+. Label（标签）：为建立Service和Pod间的关联关系，每个Pod都需要贴上一个Label，并给对应的Service定义Label Selector（标签选择器）
+. Pause：Pod中一种特殊容器，其他的容器为业务容器，业务容器共享Pause容器的网络栈和Volume挂载卷，因此它们之间的通信和数据交换更为高效
+. 注意：只有提供服务的一组Pod才会被“映射”为一个服务
+
+* Node（节点）：Node可以是物理机或云中的虚拟机，通常在一个Node上运行几百个Pod
++
+. Master节点：运行着集群管理的一组进程，包括kube-apiserver、kube-controller-manager和kube-scheduler，这些进程全自动实现了整个集群的资源管理、Pod调度、弹性伸缩、安全控制、系统监控和纠错等管理功能
+. Node工作节点：运行真正的应用程序，其中最小运行单元就是Pod，运行着Kubernetes的kubelet、kube-proxy服务进程，这些服务进程负责Pod的创建、启动、监控、重启、销毁，以及实现软件模式的负载均衡器
+
+== Kubernetes 实战：为服务扩容、服务升级提供全新解决方案
+服务扩容，涉及资源分配（选择哪个节点扩容）、实例部署和启动等环节，只需为需要扩容的Service关联的Pod创建一个Replication Controller（简称RC），即可由Kubernetes自动化完成扩容。
+
+Replication Controller（RC）定义文件：
+. 目标Pod的定义
+. 目标Pod需要运行的副本数量（Replicas）
+. 要监控的目标Pod的标签（Label）
+
+扩容过程：
+. 创建好RC
+. 系统自动创建Pod
+. 系统根据Label筛选对应的Pod实例并监控
+. 若实例数少于定义的副本数量（Replicas），则根据RC中定义的Pod模板创建一个新Pod，将此Pod调度到合适的Node上启动运行，直到Pod实例数量达到预定目标
+
+== Kubernetes 关键性能
+. 可以轻装上阵设计、实现、运维分布式系统
+. 全面拥抱微服务架构
+. 系统可以随时整体迁移到公有云上
+. 系统具有超强的横向扩容能力，从而支撑互联网公司广大的用户规模
+
+== 参考
+link:https://www.jianshu.com/p/517e757d6d17[深入理解容器基础概念]
+
+
+
+
+
+
+
+
+
+
